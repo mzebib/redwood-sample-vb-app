@@ -1,0 +1,49 @@
+{
+  "component-dependencies": {
+    "oj-oacp": {
+      "version": "2410.0.2",
+      "components": {
+        "pubsub": "2410.0.2"
+      }
+    },
+    "oj-oars": {
+      "version": "2410.0.2",
+      "components": {
+        "resource": "2410.0.2"
+      }
+    },
+    "oj-sp": {
+      "version": "2410.0.3",
+      "components": {
+        "common-util": "2410.0.3",
+        "common-strings": "2410.0.3",
+        "foldout-panel-overflow": "2410.0.3",
+        "dynamic-foldout-page": "2410.0.3",
+        "create-edit-drawer-template": "2410.0.3",
+        "section": "2410.0.3",
+        "summarizing-collection": "2410.0.3",
+        "header-navigation": "2410.0.3",
+        "general-drawer-template": "2410.0.3",
+        "common": "2410.0.3",
+        "list-section": "2410.0.3",
+        "foldout-panel": "2410.0.3",
+        "internal-resources": "2410.0.3",
+        "foldout-panel-summarizing": "2410.0.3",
+        "smart-search": "2410.0.3",
+        "foldout-layout": "2410.0.3",
+        "css-additions": "2410.0.3",
+        "message-banner-unsaved-changes": "2410.0.3"
+
+      }
+    },
+    "oj-sp-ref-bigjs": "6.2.1",
+    "oj-dynamic": {
+      "version": "16.1.6",
+      "components": {
+        "shared": "16.1.6",
+        "utils": "16.1.6",
+        "providers": "16.1.6"
+      }
+    }
+  }
+}

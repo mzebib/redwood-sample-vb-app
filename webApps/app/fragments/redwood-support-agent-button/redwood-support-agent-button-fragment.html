@@ -1,0 +1,20 @@
+<oj-button class="oj-button-lg" label="Support" chroming="callToAction" on-oj-action="[[$listeners.buttonAction]]">
+  <span class="oj-ux-ico-oracle-o" slot="startIcon"></span>
+</oj-button>
+
+<oj-dialog dialog-title="Support" id="oj-dialog-support" cancel-behavior="icon" drag-affordance="none"
+  resize-behavior="none">
+  <div slot="body">
+    <div class="oj-flex" style="width: 100%;">
+      <oj-form-layout class="oj-formlayout-full-width" style="width: 100%;">
+        <oj-input-text label-hint="Name" required="true"></oj-input-text>
+        <oj-input-text label-hint="Email" required="true"></oj-input-text>
+        <oj-text-area label-hint="Feedback" placeholder="What's broken or missing? Provide details here." rows="10"
+          required="true"></oj-text-area>
+      </oj-form-layout>
+    </div>
+  </div>
+  <div slot="footer">
+    <oj-button chroming="callToAction">Submit</oj-button>
+  </div>
+</oj-dialog>

@@ -1,0 +1,31 @@
+<!-- navigation drawer for off canvas in mobile and drawer on desktop -->
+<oj-drawer-layout id="navDrawer" role="navigation"
+  start-display="[[ $application.responsive.smOnly ? 'overlay' : 'reflow' ]]">
+  <oj-vb-fragment slot="start" id="shell-drawer" name="shell-drawer">
+    <oj-vb-fragment-param name="currentFlow" value="{{ $page.currentFlow }}"></oj-vb-fragment-param>
+  </oj-vb-fragment>
+
+  <div id="pageContent"
+    class="oj-flex oj-sm-flex-direction-column oj-sm-flex-wrap-nowrap vb-web-applayout-page fixed-header">
+    <oj-vb-fragment id="shell-header" name="shell-header">
+    </oj-vb-fragment>
+
+    <!-- Displays notification messages -->
+    <oj-messages id="vbDefaultNotifier" display-options.category="none" position="{}" display="general"
+      messages="{{$page.variables.messagesADP}}" on-oj-close="[[$listeners.onMessageClose]]"></oj-messages>
+
+    <div
+      class="vb-content-and-footer-container oj-flex oj-sm-flex-direction-column oj-sm-flex-1 oj-sm-flex-wrap-nowrap oj-web-applayout-content-nopad"
+      style="overflow: hidden;">
+      <oj-vb-content id="vbRouterContent" class="vbcs-pages-module oj-flex-item" config="[[vbRouterFlow]]">
+      </oj-vb-content>
+    </div>
+
+  </div>
+</oj-drawer-layout>
+
+
+<div class="oj-flex oj-sm-justify-content-flex-end" style="position: fixed; bottom: 12px; right: 12px; cursor: pointer;">
+  <oj-vb-fragment bridge="[[vbBridge]]" name="redwood-support-agent-button" class="oj-flex-item oj-sm-12 oj-md-12">
+  </oj-vb-fragment>
+</div>

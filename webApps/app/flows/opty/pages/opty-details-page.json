@@ -1,0 +1,227 @@
+{
+  "title": "",
+  "description": "",
+  "variables": {
+
+    "activitiesCount": {
+      "type": "number",
+      "defaultValue": 3
+    },
+    "activityCompletedList": {
+      "type": "application:activityType[]",
+      "defaultValue": "[[ [\n                    {\n                        \"id\": 1,\n                        \"activityDate\": \"1/28/26\",\n                        \"activityOrder\": 1,\n                        \"activityStatus\": \"Completed\",\n                        \"description\": null,\n                        \"icon\": \"oj-ux-ico-chart-funnel-v\",\n                        \"title\": \"Opportunity Updated\",\n                        \"activityType\": \"LOG\",\n                        \"dueDate\": null,\n                        \"objectId\": 1,\n                        \"content\": null,\n                        \"owner\": \"Sales Rep\",\n                        \"activityTime\": \"10:30 AM\"\n                    },\n                    {\n                        \"id\": 2,\n                        \"activityDate\": \"1/28/26\",\n                        \"activityOrder\": 1,\n                        \"activityStatus\": \"Completed\",\n                        \"description\": null,\n                        \"icon\": \"oj-ux-ico-chart-funnel-v\",\n                        \"title\": \"Opportunity Updated\",\n                        \"activityType\": \"LOG\",\n                        \"dueDate\": null,\n                        \"objectId\": 1,\n                        \"content\": null,\n                        \"owner\": \"Sales Rep\",\n                        \"activityTime\": \"10:30 AM\"\n                    },\n                    {\n                        \"id\": 3,\n                        \"activityDate\": \"1/28/26\",\n                        \"activityOrder\": 1,\n                        \"activityStatus\": \"Completed\",\n                        \"description\": null,\n                        \"icon\": \"oj-ux-ico-chart-funnel-v\",\n                        \"title\": \"Opportunity Created\",\n                        \"activityType\": \"LOG\",\n                        \"dueDate\": null,\n                        \"objectId\": 1,\n                        \"content\": null,\n                        \"owner\": \"Sales Rep\",\n                        \"activityTime\": \"10:00 AM\"\n                    }\n                ] ]]"
+    },
+    "activityCompletedListADP": {
+      "type": "vb/ArrayDataProvider2",
+      "defaultValue": {
+        "data": "{{ $variables.activityCompletedList }}",
+        "itemType": "application:activityType"
+      }
+    },
+    "activityPendingList": {
+      "type": "application:activityType[]"
+    },
+    "activityPendingListADP": {
+      "defaultValue": {
+        "data": "{{ $variables.activityPendingList }}",
+        "itemType": "application:activityType"
+      },
+      "type": "vb/ArrayDataProvider2"
+    },
+    "contactsCount": {
+      "type": "number",
+      "defaultValue": 2
+    },
+    "contactsList": {
+      "type": "application:optyContactType[]",
+      "defaultValue": "[[ [\n            {\n                \"id\": 1,\n                \"name\": \"Bill Richardson\",\n                \"jobTitle\": \"VP, IT\",\n                \"email\": \"bill.richardson@oracledemos.com\",\n                \"optyId\": 1,\n                \"primaryContactFlag\": true,\n                \"phoneNumber\": \"+1 (512) 555-4542\"\n            },\n            {\n                \"id\": 2,\n                \"name\": \"James Brown\",\n                \"jobTitle\": \"IT Director\",\n                \"email\": \"james.brown@oracledemos.com\",\n                \"optyId\": 1,\n                \"primaryContactFlag\": false,\n                \"phoneNumber\": \"+1 (512) 555-4544\"\n            }\n        ] ]]"
+    },
+    "contactsListADP": {
+      "type": "vb/ArrayDataProvider2",
+      "defaultValue": {
+        "data": "{{ $variables.contactsList }}",
+        "itemType": "application:optyContactType",
+        "keyAttributes": "id"
+
+      }
+    },
+    "currentObjectiveAction": {
+      "type": "application:objectiveActionType"
+    },
+    "guidanceCompleted": {
+      "type": "boolean",
+      "defaultValue": true
+    },
+    "id": {
+      "type": "number",
+      "required": true,
+      "input": "fromUrl",
+      "defaultValue": 1
+    },
+    "leadsCount": {
+      "type": "number",
+      "defaultValue": 0
+    },
+    "objectivesCount": {
+      "type": "number",
+      "defaultValue": 3
+    },
+    "objectivesList": {
+      "type": "any[]",
+      "defaultValue": [
+          {
+            "id": 1,
+            "objective": "Complete Research & Introduction",
+            "status": "PENDING",
+            "actions": [
+            ]
+          },
+          {
+            "id": 2,
+            "objective": "Complete Discovery",
+            "status": "PENDING",
+            "actions": [
+            ]
+          },
+          {
+            "id": 3,
+            "objective": "Present the Solution",
+            "status": "PENDING",
+            "actions": [
+            ]
+          }
+        ]    },
+    "opty": {
+      "type": "application:optyType",
+      "defaultValue": {
+        "amount": 0,
+        "name": "Redline Hosting - Hybrid Generator",
+        "status": "Open",
+        "winProb": 20,
+        "owner": "Sales Rep",
+        "id": 1,
+        "closeDate": "3/31/26",
+        "account": "Redline Hosting",
+        "predWinProb": 20,
+        "salesStage": "01 - Qualification"
+      }
+    },
+    "productListADP": {
+      "type": "vb/ArrayDataProvider2",
+      "defaultValue": {
+        "data": "{{ $variables.productsList }}",
+        "itemType": "application:productType",
+        "keyAttributes": "id"
+
+      }
+    },
+    "productsCount": {
+      "type": "number",
+      "defaultValue": 0
+    },
+    "productsList": {
+      "type": "application:productType[]",
+      "defaultValue": [
+        {
+          "id": 1,
+          "name": "550kW Hybrid Generators",
+          "amount": 250000,
+          "quantity": 10
+        }
+      ]
+    },
+    "quotesCount": {
+      "type": "number",
+      "defaultValue": 0
+    },
+    "showGuidancePanel": {
+      "type": "boolean",
+      "defaultValue": true
+    },
+    "showPendingActivities": {
+      "type": "boolean",
+      "defaultValue": false
+    },
+    "smartActionListSDP": {
+      "type": "vb/ServiceDataProvider",
+      "defaultValue": {
+        "endpoint": "businessObjects/getall_SmartAction",
+        "keyAttributes": "@value",
+        "itemsPath": "items",
+        "responseType": "application:smartActionListType",
+        "transformsContext": {
+          "vb-textFilterAttributes": [
+            "value"
+          ]
+        }
+      }
+    },
+    "smartActionText": {
+      "type": "string"
+    },
+    "teamCount": {
+      "type": "number",
+      "defaultValue": 1
+    },
+    "teamList": {
+      "type": "application:teamType[]",
+      "defaultValue": "[[ [\n    {\n        \"id\": 1,\n        \"email\": \"sales.rep@oracledemos.com\",\n        \"name\": \"Sales Rep\",\n        \"phoneNumber\": \"+1 (512) 555-7477\",\n        \"jobTitle\": \"Sales Rep\",\n        \"ownerFlag\": true\n      \n    }\n] ]]"
+    },
+    "teamListADP": {
+      "type": "vb/ArrayDataProvider2",
+      "defaultValue": {
+        "data": "{{ $variables.teamList }}",
+        "itemType": "application:teamType",
+        "keyAttributes": "id"
+
+      }
+    },
+    "viewType": {
+      "type": "string",
+      "defaultValue": "overview"
+    }
+
+  },
+  "metadata": {},
+  "types": {
+  },
+  "eventListeners": {
+
+  },
+  "imports": {
+    "components": {
+      "oj-avatar": {
+        "path": "ojs/ojavatar"
+      },
+      "oj-button": {
+        "path": "ojs/ojbutton"
+      },
+      "oj-conveyor-belt": {
+        "path": "ojs/ojconveyorbelt"
+      },
+      "oj-input-search": {
+        "path": "ojs/ojinputsearch"
+      },
+      "oj-list-item-layout": {
+        "path": "ojs/ojlistitemlayout"
+      },
+      "oj-list-view": {
+        "path": "ojs/ojlistview"
+      },
+      "oj-menu": {
+        "path": "ojs/ojmenu"
+      },
+      "oj-menu-button": {
+        "path": "ojs/ojbutton"
+      },
+      "oj-option": {
+        "path": "ojs/ojoption"
+      }
+    },
+    "modules": {
+      "ojValidationNumber": {
+        "path": "ojs/ojvalidation-number"
+      }
+    }
+  }
+}

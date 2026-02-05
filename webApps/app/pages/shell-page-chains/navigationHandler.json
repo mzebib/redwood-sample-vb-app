@@ -1,0 +1,32 @@
+{
+  "description": "Navigates to the flow selected in the navigation tab.",
+  "variables": {
+    "item": {
+      "required": true,
+      "type": "string",
+      "input": "fromCaller"
+    },
+    "updatedFrom": {
+      "type": "string",
+      "input": "fromCaller"
+    }
+  },
+  "root": "test",
+  "actions": {
+    "test": {
+      "module": "vb/action/builtin/ifAction",
+      "parameters": {
+        "condition": "{{ $variables.updatedFrom !== 'external' }}"
+      },
+      "outcomes": {
+        "true": "navigateToPage"
+      }
+    },
+    "navigateToPage": {
+      "module": "vb/action/builtin/navigateAction",
+      "parameters": {
+        "page": "[[ 'shell/' + $chain.variables.item ]]"
+      }
+    }
+  }
+}

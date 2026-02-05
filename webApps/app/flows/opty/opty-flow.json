@@ -1,0 +1,9 @@
+{
+  "id": "opty",
+  "description": "Flow main",
+  "defaultPage": "opty-details",
+  "services": {},
+  "types": {},
+  "variables": {},
+  "eventListeners": {}
+}

@@ -1,0 +1,29 @@
+<header role="banner" class="oj-sm-flex-initial vb-web-applayout-header header">
+  <div class="oj-flex oj-sm-align-items-center oj-sm-margin-3x-horizontal" style="height: 100%;">
+    <div class="oj-flex-bar">
+      <oj-button chroming="borderless" display="icons">
+        <span slot="startIcon" class="oj-ux-ico-menu oj-ux-icon-size-5x" style="color: #FFFFFF;"></span>
+      </oj-button>
+    </div>
+
+    <div class="oj-flex-bar-middle oj-sm-margin-4x-horizontal oj-sm-align-items-center">
+      <span class="oj-typography-body-sm oj-sm-margin-2x-end oj-ux-ico-oracle" title="Oracle" alt="Oracle" style="cursor: pointer;"></span>
+    </div>
+
+    <div class="oj-flex oj-sm-align-items-center oj-sm-justify-content-flex-end">
+      <oj-toolbar class="oj-sm-margin-6x-end">
+        <oj-bind-for-each data="[[$application.variables.globalHeadersADP]]">
+          <template>
+            <oj-button display="icons" :title="[[ $current.data.name ]]">
+              <span :class="[[$current.data.iconClass]]" slot="startIcon" style="color: #FFFFFF"></span>
+            </oj-button>
+          </template>
+        </oj-bind-for-each>
+      </oj-toolbar>
+      <oj-button display="icons" chroming="borderless">
+        <oj-avatar id="header-avatar" slot="startIcon" size="2xs" background="purple" icon-class="oj-ux-ico-contact">
+        </oj-avatar>
+      </oj-button>
+    </div>
+  </div>
+</header>
