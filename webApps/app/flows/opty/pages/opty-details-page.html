@@ -17,14 +17,14 @@
             <oj-bind-text value="[[ $variables.opty.name ]]"></oj-bind-text>
           </div>
           <div class="oj-flex">
-            <oj-button label="Details" chroming="outlined">
+            <oj-button label="Details" chroming="outlined" on-oj-action="[[$flow.navigatetoPage('edit-opty-details', {optyId: $variables.opty.id})]]">
               <span class="oj-ux-ico-add-edit-page" slot="startIcon"></span>
             </oj-button>
           </div>
         </div>
         <div class="oj-flex oj-sm-align-items-center oj-sm-padding-4x-bottom">
           <div class="oj-flex oj-flex-item oj-sm-flex-initial oj-sm-align-items-center">
-            <span class="oj-badge oj-badge-info"><oj-bind-text value="[[ $variables.opty.salesStage ]]"></oj-bind-text></span>
+            <span class="oj-badge oj-badge-info"><oj-bind-text value="[[ $variables.opty.salesStage ]]" ></oj-bind-text></span>
           </div>
           <div class="oj-flex oj-sm-align-items-center oj-sm-justify-content-center oj-sm-padding-4x-start">
             <span class="oj-text-color-secondary oj-sm-padding-1x-end">Status</span>
@@ -269,11 +269,10 @@
                               <oj-bind-if test="[[ $current.data.primaryContactFlag ]]">
                                 <span class="oj-badge">Primary</span>
                               </oj-bind-if>
-                            </div>
-                          </oj-list-item-layout>
-                        </oj-bind-if>
-                      </template>
-                    </oj-list-view>
+                            </oj-list-item-layout>
+                          </oj-bind-if>
+                        </template>
+                      </oj-list-view>
                   </div>
                 </div>
               </div>
@@ -359,11 +358,10 @@
                               <oj-bind-if test="[[ $current.data.ownerFlag ]]">
                                 <span class="oj-badge">Owner</span>
                               </oj-bind-if>
-                            </div>
-                          </oj-list-item-layout>
-                        </oj-bind-if>
-                      </template>
-                    </oj-list-view>
+                            </oj-list-item-layout>
+                          </oj-bind-if>
+                        </template>
+                      </oj-list-view>
                   </div>
                 </div>
               </div>
@@ -422,4 +420,3 @@
     </div>
   </div>
 </div>
-
