@@ -34,10 +34,7 @@
             <span class="oj-text-color-secondary oj-sm-padding-1x-end">Predicted Win Probability</span>
             <a><oj-bind-text value="[[ $variables.opty.predWinProb ]]"></oj-bind-text></a>
           </div>
-          <!-- <div class="oj-flex oj-sm-align-items-center oj-sm-justify-content-center oj-sm-padding-4x-start">
-            <span class="oj-text-color-secondary oj-sm-padding-1x-end">Win Probability</span>
-            <span><oj-bind-text value="[[ $variables.opty.winProb ]]"></oj-bind-text></span>
-          </div> -->
+          <!-- <div class="oj-flex oj-sm-align-items-center oj-sm-justify-content-center oj-sm-padding-4x-start">\n            <span class="oj-text-color-secondary oj-sm-padding-1x-end">Win Probability</span>\n            <span><oj-bind-text value="[[ $variables.opty.winProb ]]"></oj-bind-text></span>\n          </div> -->
 
           <div class="oj-flex oj-sm-align-items-center oj-sm-justify-content-center oj-sm-padding-4x-start">
             <span class="oj-text-color-secondary oj-sm-padding-1x-end">Close Date</span>
@@ -214,9 +211,8 @@
                             <span class="oj-typography-body-sm oj-sm-margin-1x-top"><oj-bind-text value='[[ "By " + $current.data.owner ]]'></oj-bind-text></span>
                             <span class="oj-typography-body-xs oj-text-color-secondary oj-sm-margin-1x-top"><oj-bind-text value="[[ $current.data.activityDate ]]"></oj-bind-text></span>
                           </div>
-                        </div>
-                      </template>
-                    </oj-list-view>
+                        </template>
+                      </oj-list-view>
                   </div>
                 </div>
               </div>
@@ -238,7 +234,7 @@
                 <div
                   class="oj-flex oj-sm-flex-direction-column oj-sm-flex-wrap-nowrap oj-sm-margin-4x-top foldout-content-panel-content">
                   <div class="oj-flex oj-sm-flex-direction-column">
-                    <oj-list-view data="[[$variables.contactsListADP]]">
+                    <oj-list-view data="[[$variables.contactsListADP]]" sort-criteria='[{"attribute": "name", "direction": "ascending"}]'>
                       <template slot="itemTemplate">
                         <oj-bind-if test="[[ $current.index < 3 ]]">
                           <oj-list-item-layout class="oj-listitemlayout-padding-off">
@@ -422,4 +418,3 @@
     </div>
   </div>
 </div>
-
