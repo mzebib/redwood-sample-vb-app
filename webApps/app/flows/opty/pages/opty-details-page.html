@@ -14,17 +14,17 @@
         <div
           class="oj-flex oj-flex-item oj-sm-flex-initial oj-sm-align-items-center oj-sm-padding-2x-bottom oj-sm-justify-content-space-between">
           <div class="oj-typography-subheading-lg">
-            <oj-bind-text value="[[ $variables.opty.name ]]"></oj-bind-text>
+            <oj-bind-text value="[[ $variables.opty.name ]"></oj-bind-text>
           </div>
           <div class="oj-flex">
-            <oj-button label="Details" chroming="outlined">
+            <oj-button label="Details" chroming="outlined" on-oj-action="[[$flow.nav('edit', {optyId: $variables.opty.id})]]">
               <span class="oj-ux-ico-add-edit-page" slot="startIcon"></span>
             </oj-button>
           </div>
         </div>
         <div class="oj-flex oj-sm-align-items-center oj-sm-padding-4x-bottom">
           <div class="oj-flex oj-flex-item oj-sm-flex-initial oj-sm-align-items-center">
-            <span class="oj-badge oj-badge-info"><oj-bind-text value="[[ $variables.opty.salesStage ]]"></oj-bind-text></span>
+            <span class="oj-badge oj-badge-info"><oj-bind-text value="[[ $variables.opty.salesStage ]"></oj-bind-text></span>
           </div>
           <div class="oj-flex oj-sm-align-items-center oj-sm-justify-content-center oj-sm-padding-4x-start">
             <span class="oj-text-color-secondary oj-sm-padding-1x-end">Status</span>
@@ -65,7 +65,7 @@
     <div
       class="oj-flex oj-sm-flex-wrap-nowrap oj-sm-justify-content-space-between oj-sm-align-items-flex-start content-header-stripe"
       data-vb-layout-type="flex" style="width: 100%">
-      <oj-bind-if test='[[ $variables.viewType === "overview" ]]'>
+      <oj-bind-if test='[[ $variables.viewType === "overview" ]'>
         <oj-conveyor-belt arrow-visibility="hidden" style="width: 100%;">
           <div class="oj-flex oj-sm-flex-wrap-nowrap oj-sm-justify-content-space-between oj-sm-align-items-flex-start foldout-container"
             data-vb-layout-type="flex">
@@ -81,7 +81,7 @@
                 <div
                   class="oj-flex oj-sm-flex-direction-column oj-sm-flex-wrap-nowrap oj-sm-margin-6x-top foldout-content-panel-content">
 
-                  <oj-bind-if test="[[ !$variables.showGuidancePanel ]]">
+                  <oj-bind-if test="[[ !$variables.showGuidancePanel ]">
                     <div class="oj-flex oj-sm-justify-content-center oj-sm-padding-6x-vertical">
                       <div class="progress-dot-container">
                         <div class="progress-dot"></div>
@@ -91,8 +91,8 @@
                     </div>
                   </oj-bind-if>
 
-                  <oj-bind-if test="[[ $variables.showGuidancePanel ]]">
-                    <oj-bind-if test="[[ $variables.guidanceCompleted ]]">
+                  <oj-bind-if test="[[ $variables.showGuidancePanel ]">
+                    <oj-bind-if test="[[ $variables.guidanceCompleted ]">
                       <div class="oj-flex oj-sm-flex-direction-column oj-sm-padding-4x-vertical">
                         <div class="oj-flex oj-sm-align-items-center">
                           <span class="oj-typography-body-lg">You're all caught up for now.</span>
@@ -100,21 +100,21 @@
                       </div>
                     </oj-bind-if>
 
-                    <oj-bind-if test="[[ !$variables.guidanceCompleted ]]">
+                    <oj-bind-if test="[[ !$variables.guidanceCompleted ]">
                       <div class="oj-flex oj-sm-align-items-center">
                         <span class="oj-typography-bold oj-typography-body-lg oj-sm-margin-2x-end"><oj-bind-text value="[[ $variables.currentObjectiveAction.title ]]"></oj-bind-text></span>
                       </div>
 
                       <span class="oj-sm-margin-4x-top"><oj-bind-text value="[[ $application.functions.truncateString($variables.currentObjectiveAction.description, 70) ]]"></oj-bind-text></span>
                       <div class="oj-flex oj-sm-align-items-center oj-sm-margin-4x-top">
-                        <oj-bind-if test='[[ $variables.currentObjectiveAction.status === "PENDING" ]]'>
+                        <oj-bind-if test='[[ $variables.currentObjectiveAction.status === "PENDING" ]'>
                           <oj-menu-button :id='[[ "oj-menu-button-" + $variables.currentObjectiveAction.id ]]'
                             chroming="solid" class="oj-button-sm oj-sm-margin-4x-end">
-                            <oj-bind-text value="[[ $variables.currentObjectiveAction.actionTypeInfo.label ]]">
+                            <oj-bind-text value="[[ $variables.currentObjectiveAction.actionTypeInfo.label ]">
                             </oj-bind-text>
                             <oj-menu :id='[[ "oj-menu-" + $variables.currentObjectiveAction.id ]]' slot="menu">
                               <oj-option value="action">
-                                <oj-bind-text value="[[ $variables.currentObjectiveAction.actionTypeInfo.label ]]">
+                                <oj-bind-text value="[[ $variables.currentObjectiveAction.actionTypeInfo.label ]">
                                 </oj-bind-text>
                               </oj-option>
                               <oj-option value="complete">Complete</oj-option>
@@ -135,10 +135,10 @@
                           <div
                             class="oj-flex oj-sm-flex-wrap-nowrap oj-sm-align-items-center oj-sm-margin-4x-end oj-sm-margin-3x-horizontal">
                             <div class="oj-flex" data-vb-layout-type="flex">
-                              <oj-bind-if test='[[ $current.data.status === "PENDING" ]]'>
+                              <oj-bind-if test='[[ $current.data.status === "PENDING" ]'>
                                 <span class="oj-ux-ico-small-dot oj-ux-icon-size-5x"></span>
                               </oj-bind-if>
-                              <oj-bind-if test='[[ $current.data.status === "COMPLETED" ]]'>
+                              <oj-bind-if test='[[ $current.data.status === "COMPLETED" ]'>
                                 <span class="oj-ux-ico-completed oj-ux-icon-size-5x"></span>
                               </oj-bind-if>
                             </div>
@@ -170,7 +170,7 @@
                 <div
                   class="oj-flex oj-sm-flex-direction-column oj-sm-flex-wrap-nowrap oj-sm-margin-6x-top foldout-content-panel-content">
 
-                  <oj-bind-if test="[[ $variables.showPendingActivities ]]">
+                  <oj-bind-if test="[[ $variables.showPendingActivities ]">
                     <div class="oj-flex oj-sm-flex-direction-column oj-sm-margin-4x-bottom">
                       <span class="oj-typography-body-sm oj-typography-bold">Pending</span>
                       <hr class="oj-hr oj-flex-item oj-sm-flex-initial">
@@ -180,7 +180,7 @@
                             <div
                               class="oj-flex oj-sm-flex-wrap-nowrap oj-sm-align-items-flex-start oj-sm-margin-4x-end">
                               <div class="oj-flex" data-vb-layout-type="flex">
-                                <span :class="[[ $current.data.icon ]]" class="oj-ux-icon-size-6x"></span>
+                                <span :class="[[ $current.data.icon ]" class="oj-ux-icon-size-6x"></span>
                               </div>
                             </div>
                             <div class="oj-flex oj-sm-flex-direction-column" data-vb-layout-type="flex">
@@ -204,7 +204,7 @@
                         <div class="oj-flex oj-sm-align-items-flex-start">
                           <div class="oj-flex oj-sm-flex-wrap-nowrap oj-sm-align-items-flex-start oj-sm-margin-4x-end">
                             <div class="oj-flex" data-vb-layout-type="flex">
-                              <span :class="[[ $current.data.icon ]]" class="oj-ux-icon-size-6x"></span>
+                              <span :class="[[ $current.data.icon ]" class="oj-ux-icon-size-6x"></span>
                             </div>
                           </div>
                           <div class="oj-flex oj-sm-flex-direction-column" data-vb-layout-type="flex">
@@ -240,11 +240,11 @@
                   <div class="oj-flex oj-sm-flex-direction-column">
                     <oj-list-view data="[[$variables.contactsListADP]]">
                       <template slot="itemTemplate">
-                        <oj-bind-if test="[[ $current.index < 3 ]]">
+                        <oj-bind-if test="[[ $current.index < 3 ]">
                           <oj-list-item-layout class="oj-listitemlayout-padding-off">
                             <div slot="leading">
                               <oj-avatar size="sm"
-                                initials="[[ $application.functions.getInitials($current.data.name) ]]">
+                                initials="[[ $application.functions.getInitials($current.data.name) ]">
                               </oj-avatar>
                             </div>
                             <div>
@@ -266,7 +266,7 @@
                               </div>
                             </div>
                             <div slot="metadata">
-                              <oj-bind-if test="[[ $current.data.primaryContactFlag ]]">
+                              <oj-bind-if test="[[ $current.data.primaryContactFlag ]">
                                 <span class="oj-badge">Primary</span>
                               </oj-bind-if>
                             </div>
@@ -337,11 +337,11 @@
                   <div class="oj-flex oj-sm-flex-direction-column">
                     <oj-list-view data="[[$variables.teamListADP]]">
                       <template slot="itemTemplate">
-                        <oj-bind-if test="[[ $current.index < 3 ]]">
+                        <oj-bind-if test="[[ $current.index < 3 ]">
                           <oj-list-item-layout class="oj-listitemlayout-padding-off">
                             <div slot="leading">
                               <oj-avatar size="sm"
-                                initials="[[ $application.functions.getInitials($current.data.name) ]]">
+                                initials="[[ $application.functions.getInitials($current.data.name) ]">
                               </oj-avatar>
                             </div>
                             <div>
@@ -356,7 +356,7 @@
                               </a>
                             </div>
                             <div slot="metadata">
-                              <oj-bind-if test="[[ $current.data.ownerFlag ]]">
+                              <oj-bind-if test="[[ $current.data.ownerFlag ]">
                                 <span class="oj-badge">Owner</span>
                               </oj-bind-if>
                             </div>
@@ -422,4 +422,3 @@
     </div>
   </div>
 </div>
-
