@@ -238,7 +238,7 @@
                 <div
                   class="oj-flex oj-sm-flex-direction-column oj-sm-flex-wrap-nowrap oj-sm-margin-4x-top foldout-content-panel-content">
                   <div class="oj-flex oj-sm-flex-direction-column">
-                    <oj-list-view data="[[$variables.contactsListADP]]">
+                    <oj-list-view data="[[$variables.contactsListADP]]" sort-criteria='''[{"attribute": "name", "direction": "ascending"}]'''>
                       <template slot="itemTemplate">
                         <oj-bind-if test="[[ $current.index < 3 ]]">
                           <oj-list-item-layout class="oj-listitemlayout-padding-off">
@@ -359,7 +359,7 @@
                               <oj-bind-if test="[[ $current.data.ownerFlag ]]">
                                 <span class="oj-badge">Owner</span>
                               </oj-bind-if>
-                            </div>
+                            </divr>
                           </oj-list-item-layout>
                         </oj-bind-if>
                       </template>
@@ -422,4 +422,3 @@
     </div>
   </div>
 </div>
-
