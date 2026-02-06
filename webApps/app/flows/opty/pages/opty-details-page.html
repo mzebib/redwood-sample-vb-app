@@ -17,41 +17,42 @@
             <oj-bind-text value="[[ $variables.opty.name ]]"></oj-bind-text>
           </div>
           <div class="oj-flex">
-            <oj-button label="Details" chroming="outlined">
+            <oj-button label="Details" chroming="outlined" on-click="[[ () => { alert('Details button clicked!'); } ]]">
               <span class="oj-ux-ico-add-edit-page" slot="startIcon"></span>
             </oj-button>
           </div>
         </div>
         <div class="oj-flex oj-sm-align-items-center oj-sm-padding-4x-bottom">
           <div class="oj-flex oj-flex-item oj-sm-flex-initial oj-sm-align-items-center">
-            <span class="oj-badge oj-badge-info"><oj-bind-text value="[[ $variables.opty.salesStage ]]"></oj-bind-text></span>
+            <span class="oj-badge oj-badge-info"><oj-bind-text value="[[ $variables.opty.salesStage ]]"
+                ></oj-bind-text></span>
           </div>
           <div class="oj-flex oj-sm-align-items-center oj-sm-justify-content-center oj-sm-padding-4x-start">
             <span class="oj-text-color-secondary oj-sm-padding-1x-end">Status</span>
-            <span><oj-bind-text value="[[ $variables.opty.status ]]"></oj-bind-text></span>
+            <span><oj-bind-text value="[[ $variables.opty.status ]]" ></oj-bind-text></span>
           </div>
           <div class="oj-flex oj-sm-align-items-center oj-sm-justify-content-center oj-sm-padding-4x-start">
             <span class="oj-text-color-secondary oj-sm-padding-1x-end">Predicted Win Probability</span>
-            <a><oj-bind-text value="[[ $variables.opty.predWinProb ]]"></oj-bind-text></a>
+            <a><oj-bind-text value="[[ $variables.opty.predWinProb ]]" ></oj-bind-text></a>
           </div>
           <!-- <div class="oj-flex oj-sm-align-items-center oj-sm-justify-content-center oj-sm-padding-4x-start">
             <span class="oj-text-color-secondary oj-sm-padding-1x-end">Win Probability</span>
-            <span><oj-bind-text value="[[ $variables.opty.winProb ]]"></oj-bind-text></span>
+            <span><oj-bind-text value="[[ $variables.opty.winProb ]]" ></oj-bind-text></span>
           </div> -->
 
           <div class="oj-flex oj-sm-align-items-center oj-sm-justify-content-center oj-sm-padding-4x-start">
             <span class="oj-text-color-secondary oj-sm-padding-1x-end">Close Date</span>
-            <span><oj-bind-text value="[[ $variables.opty.closeDate ]]"></oj-bind-text></span>
+            <span><oj-bind-text value="[[ $variables.opty.closeDate ]]" ></oj-bind-text></span>
           </div>
           <div class="oj-flex oj-sm-align-items-center oj-sm-justify-content-center oj-sm-padding-4x-start">
             <span class="oj-text-color-secondary oj-sm-padding-1x-end">Account</span>
             <a>
-              <oj-bind-text value="[[ $variables.opty.account ]]"></oj-bind-text>
+              <oj-bind-text value="[[ $variables.opty.account ]]" ></oj-bind-text>
             </a>
           </div>
           <div class="oj-flex oj-sm-align-items-center oj-sm-justify-content-center oj-sm-padding-4x-start">
             <span class="oj-text-color-secondary oj-sm-padding-1x-end">Owner</span>
-            <span><oj-bind-text value="[[ $variables.opty.owner ]]"></oj-bind-text></span>
+            <span><oj-bind-text value="[[ $variables.opty.owner ]]" ></oj-bind-text></span>
           </div>
         </div>
         <div class="oj-flex oj-sm-justify-content-space-between oj-md-padding-6x-bottom">
@@ -67,7 +68,8 @@
       data-vb-layout-type="flex" style="width: 100%">
       <oj-bind-if test='[[ $variables.viewType === "overview" ]]'>
         <oj-conveyor-belt arrow-visibility="hidden" style="width: 100%;">
-          <div class="oj-flex oj-sm-flex-wrap-nowrap oj-sm-justify-content-space-between oj-sm-align-items-flex-start foldout-container"
+          <div
+            class="oj-flex oj-sm-flex-wrap-nowrap oj-sm-justify-content-space-between oj-sm-align-items-flex-start foldout-container"
             data-vb-layout-type="flex">
             <div
               class="oj-flex oj-flex-item oj-sm-flex-initial oj-sm-flex-direction-column oj-sm-flex-wrap-nowrap foldout-content-panel panel-bg-color-odd oj-sm-justify-content-space-between">
@@ -102,10 +104,13 @@
 
                     <oj-bind-if test="[[ !$variables.guidanceCompleted ]]">
                       <div class="oj-flex oj-sm-align-items-center">
-                        <span class="oj-typography-bold oj-typography-body-lg oj-sm-margin-2x-end"><oj-bind-text value="[[ $variables.currentObjectiveAction.title ]]"></oj-bind-text></span>
+                        <span class="oj-typography-bold oj-typography-body-lg oj-sm-margin-2x-end"><oj-bind-text
+                            value="[[ $variables.currentObjectiveAction.title ]]" ></oj-bind-text></span>
                       </div>
 
-                      <span class="oj-sm-margin-4x-top"><oj-bind-text value="[[ $application.functions.truncateString($variables.currentObjectiveAction.description, 70) ]]"></oj-bind-text></span>
+                      <span class="oj-sm-margin-4x-top"><oj-bind-text
+                          value="[[ $application.functions.truncateString($variables.currentObjectiveAction.description, 70) ]]"
+                          ></oj-bind-text></span>
                       <div class="oj-flex oj-sm-align-items-center oj-sm-margin-4x-top">
                         <oj-bind-if test='[[ $variables.currentObjectiveAction.status === "PENDING" ]]'>
                           <oj-menu-button :id='[[ "oj-menu-button-" + $variables.currentObjectiveAction.id ]]'
@@ -128,7 +133,8 @@
 
                   <hr class="oj-hr oj-sm-margin-6x-vertical">
                   <div class="oj-flex oj-sm-flex-direction-column">
-                    <span class="oj-typography-subheading-sm oj-sm-padding-3x-horizontal oj-sm-padding-4x-bottom">Stage Objectives</span>
+                    <span class="oj-typography-subheading-sm oj-sm-padding-3x-horizontal oj-sm-padding-4x-bottom"
+                      >Stage Objectives</span>
                     <oj-bind-for-each data="[[$variables.objectivesList]]">
                       <template>
                         <div class="oj-flex oj-sm-flex-wrap-nowrap oj-sm-align-items-center oj-sm-margin-4x-bottom">
@@ -144,7 +150,8 @@
                             </div>
                           </div>
                           <div class="oj-flex oj-sm-flex-direction-column" data-vb-layout-type="flex">
-                            <span class="oj-typography-body-md"><oj-bind-text value="[[ $current.data.objective ]]"></oj-bind-text></span>
+                            <span class="oj-typography-body-md"><oj-bind-text
+                                value="[[ $current.data.objective ]]" ></oj-bind-text></span>
                           </div>
                         </div>
                       </template>
@@ -154,7 +161,8 @@
               </div>
               <div class="oj-flex">
                 <a>
-                  <oj-bind-text value='[[ "View All Objectives (" + $variables.objectivesCount + ")" ]]'></oj-bind-text>
+                  <oj-bind-text value='[[ "View All Objectives (" + $variables.objectivesCount + ")" ]]'
+                    ></oj-bind-text>
                 </a>
               </div>
             </div>
@@ -185,10 +193,12 @@
                             </div>
                             <div class="oj-flex oj-sm-flex-direction-column" data-vb-layout-type="flex">
                               <a class="oj-typography-body-md oj-typography-bold oj-text-color-primary">
-                                <oj-bind-text value="[[ $current.data.title ]]"></oj-bind-text>
+                                <oj-bind-text value="[[ $current.data.title ]]" ></oj-bind-text>
                               </a>
-                              <span class="oj-typography-body-sm oj-sm-margin-1x-top"><oj-bind-text value='[[ "By " + $current.data.owner ]]'></oj-bind-text></span>
-                              <span class="oj-typography-body-xs oj-text-color-secondary oj-sm-margin-1x-top"><oj-bind-text value="[[ $functions.getTomorrowDate() ]]"></oj-bind-text></span>
+                              <span class="oj-typography-body-sm oj-sm-margin-1x-top"><oj-bind-text
+                                  value='[[ "By " + $current.data.owner ]]' ></oj-bind-text></span>
+                              <span class="oj-typography-body-xs oj-text-color-secondary oj-sm-margin-1x-top"><oj-bind-text
+                                  value="[[ $functions.getTomorrowDate() ]]" ></oj-bind-text></span>
                             </div>
                           </div>
                         </template>
@@ -209,10 +219,12 @@
                           </div>
                           <div class="oj-flex oj-sm-flex-direction-column" data-vb-layout-type="flex">
                             <a class="oj-typography-body-md oj-typography-bold oj-text-color-primary">
-                              <oj-bind-text value="[[ $current.data.title ]]"></oj-bind-text>
+                              <oj-bind-text value="[[ $current.data.title ]]" ></oj-bind-text>
                             </a>
-                            <span class="oj-typography-body-sm oj-sm-margin-1x-top"><oj-bind-text value='[[ "By " + $current.data.owner ]]'></oj-bind-text></span>
-                            <span class="oj-typography-body-xs oj-text-color-secondary oj-sm-margin-1x-top"><oj-bind-text value="[[ $current.data.activityDate ]]"></oj-bind-text></span>
+                            <span class="oj-typography-body-sm oj-sm-margin-1x-top"><oj-bind-text
+                                value='[[ "By " + $current.data.owner ]]' ></oj-bind-text></span>
+                            <span class="oj-typography-body-xs oj-text-color-secondary oj-sm-margin-1x-top"><oj-bind-text
+                                value="[[ $current.data.activityDate ]]" ></oj-bind-text></span>
                           </div>
                         </div>
                       </template>
@@ -222,7 +234,8 @@
               </div>
               <div class="oj-flex">
                 <a>
-                  <oj-bind-text value='[[ "View All Activities (" + $variables.activitiesCount + ")" ]]'></oj-bind-text>
+                  <oj-bind-text value='[[ "View All Activities (" + $variables.activitiesCount + ")" ]]'
+                    ></oj-bind-text>
                 </a>
               </div>
             </div>
@@ -249,19 +262,20 @@
                             </div>
                             <div>
                               <a class="oj-typography-body-md oj-typography-semi-bold oj-link-subtle-primary">
-                                <oj-bind-text value="[[ $current.data.name ]]"></oj-bind-text>
+                                <oj-bind-text value="[[ $current.data.name ]]" ></oj-bind-text>
                               </a>
                             </div>
                             <div slot="secondary">
-                              <span class="oj-typography-body-sm"><oj-bind-text value="[[ $current.data.jobTitle ]]"></oj-bind-text></span>
+                              <span class="oj-typography-body-sm"><oj-bind-text
+                                  value="[[ $current.data.jobTitle ]]" ></oj-bind-text></span>
                             </div>
                             <div slot="tertiary">
                               <div class="oj-flex oj-sm-flex-direction-column">
                                 <a class="oj-typography-body-sm">
-                                  <oj-bind-text value="[[ $current.data.phoneNumber ]]"></oj-bind-text>
+                                  <oj-bind-text value="[[ $current.data.phoneNumber ]]" ></oj-bind-text>
                                 </a>
                                 <a class="oj-typography-body-sm">
-                                  <oj-bind-text value="[[ $current.data.email ]]"></oj-bind-text>
+                                  <oj-bind-text value="[[ $current.data.email ]]" ></oj-bind-text>
                                 </a>
                               </div>
                             </div>
@@ -279,7 +293,8 @@
               </div>
               <div class="oj-flex">
                 <a>
-                  <oj-bind-text value='[[ "View All Contacts (" + $variables.contactsCount + ")" ]]'></oj-bind-text>
+                  <oj-bind-text value='[[ "View All Contacts (" + $variables.contactsCount + ")" ]]'
+                    ></oj-bind-text>
                 </a>
               </div>
             </div>
@@ -295,21 +310,28 @@
                 <div
                   class="oj-flex oj-sm-flex-direction-column oj-sm-flex-wrap-nowrap oj-sm-margin-4x-top foldout-content-panel-content">
                   <div class="oj-flex oj-sm-flex-direction-column">
-                    <span class="oj-text-color-secondary oj-typography-body-sm oj-typography-semi-bold">Opportunity Amount</span>
-                    <span ><oj-bind-text value="[[ $application.functions.formatCurrency($functions.calculateOptyAmount($variables.productsList)) ]]"></oj-bind-text></span>
+                    <span class="oj-text-color-secondary oj-typography-body-sm oj-typography-semi-bold">Opportunity
+                      Amount</span>
+                    <span ><oj-bind-text
+                        value="[[ $application.functions.formatCurrency($functions.calculateOptyAmount($variables.productsList)) ]]"
+                        ></oj-bind-text></span>
                   </div>
                   <div class="oj-flex oj-sm-flex-direction-column">
                     <oj-list-view data="[[$variables.productListADP]]">
                       <template slot="itemTemplate">
                         <oj-list-item-layout class="oj-listitemlayout-padding-off">
                           <div>
-                            <span class="oj-text-color-primary"><oj-bind-text value="[[ $current.data.name ]]"></oj-bind-text></span>
+                            <span class="oj-text-color-primary"><oj-bind-text
+                                value="[[ $current.data.name ]]" ></oj-bind-text></span>
                           </div>
                           <div slot="secondary">
-                            <span class="oj-sm-margin-1x-top"><oj-bind-text value="[[ $current.data.quantity ]]"></oj-bind-text></span>
+                            <span class="oj-sm-margin-1x-top"><oj-bind-text
+                                value="[[ $current.data.quantity ]]" ></oj-bind-text></span>
                           </div>
                           <div slot="tertiary">
-                            <span class="oj-sm-margin-1x-top"><oj-bind-text value="[[ $application.functions.formatCurrency($current.data.amount) ]]"></oj-bind-text></span>
+                            <span class="oj-sm-margin-1x-top"><oj-bind-text
+                                value="[[ $application.functions.formatCurrency($current.data.amount) ]]"
+                                ></oj-bind-text></span>
                           </div>
                         </oj-list-item-layout>
                       </template>
@@ -319,7 +341,8 @@
               </div>
               <div class="oj-flex">
                 <a>
-                  <oj-bind-text value='[[ "View All Products (" + $variables.productsCount + ")" ]]'></oj-bind-text>
+                  <oj-bind-text value='[[ "View All Products (" + $variables.productsCount + ")" ]]'
+                    ></oj-bind-text>
                 </a>
               </div>
             </div>
@@ -345,22 +368,23 @@
                               </oj-avatar>
                             </div>
                             <div>
-                              <span class="oj-typography-body-md"><oj-bind-text value="[[ $current.data.name ]]"></oj-bind-text></span>
+                              <span class="oj-typography-body-md"><oj-bind-text
+                                  value="[[ $current.data.name ]]" ></oj-bind-text></span>
                             </div>
                             <div slot="secondary">
-                              <span class="oj-typography-body-sm"><oj-bind-text value="[[ $current.data.jobTitle ]]"></oj-bind-text></span>
+                              <span class="oj-typography-body-sm"><oj-bind-text
+                                  value="[[ $current.data.jobTitle ]]" ></oj-bind-text></span>
                             </div>
                             <div slot="tertiary">
                               <a class="oj-typography-body-sm">
-                                <oj-bind-text value="[[ $current.data.email ]]"></oj-bind-text>
+                                <oj-bind-text value="[[ $current.data.email ]]" ></oj-bind-text>
                               </a>
                             </div>
                             <div slot="metadata">
                               <oj-bind-if test="[[ $current.data.ownerFlag ]]">
                                 <span class="oj-badge">Owner</span>
                               </oj-bind-if>
-                            </div>
-                          </oj-list-item-layout>
+                            </oj-list-item-layout>
                         </oj-bind-if>
                       </template>
                     </oj-list-view>
@@ -369,7 +393,8 @@
               </div>
               <div class="oj-flex">
                 <a>
-                  <oj-bind-text value='[[ "View All Team Members (" + $variables.teamCount + ")" ]]'></oj-bind-text>
+                  <oj-bind-text value='[[ "View All Team Members (" + $variables.teamCount + ")" ]]'
+                    ></oj-bind-text>
                 </a>
               </div>
             </div>
@@ -390,7 +415,8 @@
               </div>
               <div class="oj-flex">
                 <a>
-                  <oj-bind-text value='[[ "View All Quotes (" + $variables.quotesCount + ")" ]]'></oj-bind-text>
+                  <oj-bind-text value='[[ "View All Quotes (" + $variables.quotesCount + ")" ]]'
+                    ></oj-bind-text>
                 </a>
               </div>
             </div>
@@ -412,7 +438,8 @@
               </div>
               <div class="oj-flex">
                 <a>
-                  <oj-bind-text value='[[ "View All Leads (" + $variables.leadsCount + ")" ]]'></oj-bind-text>
+                  <oj-bind-text value='[[ "View All Leads (" + $variables.leadsCount + ")" ]]'
+                    ></oj-bind-text>
                 </a>
               </div>
             </div>
@@ -422,4 +449,3 @@
     </div>
   </div>
 </div>
-
