@@ -4,11 +4,14 @@
     "buttonAction": {
       "chains": [
         {
-          "chain": "openSupportDialogActionChain",
-          "parameters": {
-            "event": "{{$event}}",
-            "originalEvent": "{{$event.detail.originalEvent}}"
-          }
+          "chain": "openSupportDialogActionChain"
+        }
+      ]
+    },
+    "buttonAction2": {
+      "chains": [
+        {
+          "chain": "submitFeedbackActionChain"
         }
       ]
     }
@@ -34,5 +37,22 @@
     }
   },
   "types": {},
-  "variables": {}
+  "variables": {
+    "submitInProgress": {
+      "type": "boolean",
+      "defaultValue": false
+    },
+    "userMessage": {
+      "type": {
+        "email": "string",
+        "feedback": "string",
+        "name": "string"
+      },
+      "defaultValue": {
+        "name": "Sales Rep",
+        "email": "sales.rep@oracledemos.com"
+      }
+    }
+
+  }
 }

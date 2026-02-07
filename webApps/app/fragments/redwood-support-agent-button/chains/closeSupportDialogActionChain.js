@@ -9,7 +9,7 @@ define([
 ) => {
   'use strict';
 
-  class openSupportDialogActionChain extends ActionChain {
+  class closeSupportDialogActionChain extends ActionChain {
 
     /**
      * @param {Object} context
@@ -22,14 +22,14 @@ define([
         method: 'isOpen',
       });
 
-      if (ojDialogSupportOpen === false) {
-        const ojDialogSupportOpen2 = await Actions.callComponentMethod(context, {
+      if (ojDialogSupportOpen === true) {
+        const ojDialogSupportClose = await Actions.callComponentMethod(context, {
           selector: '#oj-dialog-support',
-          method: 'open',
+          method: 'close',
         });
       }
     }
   }
 
-  return openSupportDialogActionChain;
+  return closeSupportDialogActionChain;
 });

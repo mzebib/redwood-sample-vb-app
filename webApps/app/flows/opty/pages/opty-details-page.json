@@ -2,7 +2,6 @@
   "title": "",
   "description": "",
   "variables": {
-
     "activitiesCount": {
       "type": "number",
       "defaultValue": 3
@@ -183,20 +182,7 @@
 
   },
   "metadata": {},
-  "actionChains": {
-    "navigateToDetails": {
-      "root": "assignVariables",
-      "actions": {
-        "assignVariables": {
-          "module": "vb/action/builtin/assignVariablesAction",
-          "parameters": {
-            "$page.variables.viewType": {
-              "source": "details"
-            }
-          }
-        }
-      }
-    }
+  "types": {
   },
   "eventListeners": {
 
