@@ -189,6 +189,10 @@ define(["ojs/ojarraydataprovider"], function (ArrayDataProvider) {
 
       return result;
     }
+
+    navigateToOptyDetailsEdit() {
+      console.log('Details button clicked! Implement navigation logic here.');
+    }
   }
 
   return PageModule;
