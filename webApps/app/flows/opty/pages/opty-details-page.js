@@ -189,6 +189,13 @@ define(["ojs/ojarraydataprovider"], function (ArrayDataProvider) {
 
       return result;
     }
+
+    navigateToEditOpportunity(event) {
+      console.log('Details button clicked! Event:', event);
+      // In a real application, you would navigate to an edit page here.
+      // Example: this.vb.navigate('edit-opportunity', { optyId: this.vb.variables.opty.id });
+      alert('Details button clicked! (Check console for event details)');
+    }
   }
 
   return PageModule;
