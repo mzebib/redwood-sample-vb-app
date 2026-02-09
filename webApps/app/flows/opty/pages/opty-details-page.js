@@ -1,4 +1,4 @@
-define(["ojs/ojarraydataprovider"], function (ArrayDataProvider) {
+define(["ojs/ojarraydataprovider", "knockout", "ojs/ojcontext", "ojs/ojrouter"], function (ArrayDataProvider, ko, Context, Router) {
   'use strict';
 
   const actionTypesMap = new Map();
@@ -7,6 +7,10 @@ define(["ojs/ojarraydataprovider"], function (ArrayDataProvider) {
   const objectivesMap = new Map();
 
   class PageModule {
+    constructor(context) {
+      this.router = context.page.getRouter();
+    }
+
     createADP(items, key) {
       return new ArrayDataProvider(items, { keyAttributes: key });
     }
@@ -188,6 +192,20 @@ define(["ojs/ojarraydataprovider"], function (ArrayDataProvider) {
       // result.sort((a, b) => (a.id > b.id ? -1 : 1));
 
       return result;
+    }
+
+    // Listener for the "Details" button
+    get listeners() {
+      return {
+        ojButtonOjAction: (event) => {
+          const optyId = this.router.parameters.optyId();
+          if (optyId) {
+            this.router.go("edit-opty/" + optyId);
+          } else {
+            console.error("Opportunity ID not found for navigation.");
+          }
+        },
+      };
     }
   }
 
