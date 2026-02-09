@@ -7,6 +7,11 @@ define(["ojs/ojarraydataprovider"], function (ArrayDataProvider) {
   const objectivesMap = new Map();
 
   class PageModule {
+    constructor(context) {
+      // Initialize viewType to 'overview' when the page loads
+      this.viewType = 'overview';
+    }
+
     createADP(items, key) {
       return new ArrayDataProvider(items, { keyAttributes: key });
     }
@@ -188,6 +193,10 @@ define(["ojs/ojarraydataprovider"], function (ArrayDataProvider) {
       // result.sort((a, b) => (a.id > b.id ? -1 : 1));
 
       return result;
+    }
+
+    goToDetailsView() {
+      this.viewType = 'details';
     }
   }
 
