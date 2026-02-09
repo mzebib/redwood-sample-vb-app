@@ -181,6 +181,17 @@
     }
 
   },
+  "actions": {
+    "fireOptyEditAction": {
+      "calls": "vb/action/builtin/callChain",
+      "parameters": {
+        "chain": "navigateToOptyEdit",
+        "params": {
+          "optyId": "{{ $variables.opty.id }}"
+        }
+      }
+    }
+  },
   "metadata": {},
   "types": {
   },
