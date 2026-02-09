@@ -189,6 +189,19 @@ define(["ojs/ojarraydataprovider"], function (ArrayDataProvider) {
 
       return result;
     }
+
+    navigateToOptyDetails: function(event) {
+      const optyId = this.vb.variables.opty.id;
+
+      if (optyId) {
+        console.log("Navigating to opportunity details for ID:", optyId);
+        // This assumes a 'vb' object is available in the page context for navigation.
+        // The actual page name and parameter name might need to be adjusted based on the application's routing.
+        this.vb.navigateToPage('opty-edit', { optyId: optyId });
+      } else {
+        console.error("Opportunity ID not found for navigation.");
+      }
+    }
   }
 
   return PageModule;
