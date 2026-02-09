@@ -198,6 +198,10 @@ define(["ojs/ojarraydataprovider"], function (ArrayDataProvider) {
     goToDetailsView() {
       this.viewType = 'details';
     }
+
+    goToOverview() {
+      this.viewType = 'overview';
+    }
   }
 
   return PageModule;
