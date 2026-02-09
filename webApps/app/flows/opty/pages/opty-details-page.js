@@ -189,6 +189,16 @@ define(["ojs/ojarraydataprovider"], function (ArrayDataProvider) {
 
       return result;
     }
+
+    /**
+     * Handles the action for the 'Details' button.
+     * In a real application, this would navigate to an edit page or show a detailed modal.
+     */
+    gotoEditOptyDetails() {
+      console.log('Details button clicked! Navigating to opportunity edit page (placeholder).');
+      // Example navigation (replace with actual Redwood/JET navigation logic)
+      // this.vbRouter.go({ path: 'opportunity-edit', params: { id: this.opty.id } });
+    }
   }
 
   return PageModule;
