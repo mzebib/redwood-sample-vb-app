@@ -182,6 +182,20 @@
 
   },
   "metadata": {},
+  "actionChains": {
+    "navigateToOptyDetails": {
+      "actions": [
+        {
+          "id": "navigate",
+          "type": "navigate",
+          "page": "edit-opty",
+          "params": {
+            "optyId": "{{ $variables.opty.id }}"
+          }
+        }
+      ]
+    }
+  },
   "types": {
   },
   "eventListeners": {
