@@ -65,7 +65,7 @@
     <div
       class="oj-flex oj-sm-flex-wrap-nowrap oj-sm-justify-content-space-between oj-sm-align-items-flex-start content-header-stripe"
       data-vb-layout-type="flex" style="width: 100%">
-      <oj-bind-if test='[[ $variables.viewType === "overview" ]]'>
+      <oj-bind-if test='[[ $variables.viewType === "overview" ]]>'
         <oj-conveyor-belt arrow-visibility="hidden" style="width: 100%;">
           <div class="oj-flex oj-sm-flex-wrap-nowrap oj-sm-justify-content-space-between oj-sm-align-items-flex-start foldout-container"
             data-vb-layout-type="flex">
@@ -417,6 +417,15 @@
             </div>
           </div>
         </oj-conveyor-belt>
+      </oj-bind-if>
+      <oj-bind-if test='[[ $variables.viewType === "details" ]]'>
+        <div class="oj-flex oj-sm-flex-direction-column oj-sm-padding-12x-horizontal">
+          <div class="oj-typography-subheading-lg">Opportunity Details</div>
+          <p>Details content goes here...</p>
+          <oj-button label="Back to Overview" chroming="outlined" on-click="[[$functions.goToOverview]]">
+            <span class="oj-ux-ico-up-parent" slot="startIcon"></span>
+          </oj-button>
+        </div>
       </oj-bind-if>
     </div>
   </div>
