@@ -1,0 +1,14 @@
+{
+  "root": "navigateToOptyEdit",
+  "actions": {
+    "navigateToOptyEdit": {
+      "module": "vb/action/builtin/navigate",
+      "parameters": {
+        "page": "opty-edit",
+        "params": {
+          "optyId": "{{ $variables.optyId }}"
+        }
+      }
+    }
+  }
+}
