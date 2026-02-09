@@ -189,6 +189,12 @@ define(["ojs/ojarraydataprovider"], function (ArrayDataProvider) {
 
       return result;
     }
+
+    navigateToOptyList() {
+      // In a real application, this would use a router to navigate
+      console.log("Navigating to opportunities list page...");
+      // Example: this.router.go('opportunities-list');
+    }
   }
 
   return PageModule;
