@@ -1,4 +1,4 @@
-define(["ojs/ojarraydataprovider"], function (ArrayDataProvider) {
+define(["ojs/ojarraydataprovider", "ojs/ojcontext"], function (ArrayDataProvider, Context) {
   'use strict';
 
   const actionTypesMap = new Map();
@@ -7,6 +7,10 @@ define(["ojs/ojarraydataprovider"], function (ArrayDataProvider) {
   const objectivesMap = new Map();
 
   class PageModule {
+    constructor(context) {
+      this.context = context; // Store the context
+    }
+
     createADP(items, key) {
       return new ArrayDataProvider(items, { keyAttributes: key });
     }
@@ -26,8 +30,6 @@ define(["ojs/ojarraydataprovider"], function (ArrayDataProvider) {
     getGuidancePrompt(activityCompletedList, activityPendingList, opty) {
       let prompt = 'I am a B2B sales rep trying to qualify an opportunity for the following account: ' + opty.account + ". ";
       prompt += 'Generate actions for the following objectives: 1. Complete Research & Introduction, 2. Complete Discovery, and 3. Present the Solution to the Prospect. The actions may only include: Create Appointment, Create Task, Create Note, or Send Email. Only include relevant actions and spell the actions exactly as mentioned. Return response in the following JSON format: objectives (id, objective, status (PENDING) and actions (id, title. description, actionType, status (PENDING) fields) fields. The title should be 2-5 word summary of description and different from the actionType. Only return JSON object do not return any other text.';
-
-      // let prompt = 'I am a B2B sales rep trying to qualify an opportunity for the HealthCo account. Generate actions for the following objectives: 1. Complete Research & Introduction, 2. Complete Discovery, and 3. Present the Solution to the Prospect. The actions may only include: Create Appointment, Create Task, Create Note, or Send Email. Only include relevant actions and spell the actions exactly as mentioned. Return response in the following JSON format: objectives (id, objective, status (PENDING) and actions (id, title. description, actionType, status (PENDING) fields) fields. The title should be 2-5 word summary of description and different from the actionType. Only return JSON object do not return any other text.';
 
       const allActivitiesList = [...activityCompletedList].concat([...activityPendingList]);
 
@@ -60,7 +62,6 @@ define(["ojs/ojarraydataprovider"], function (ArrayDataProvider) {
           prompt += " Do not include any action regarding research such as Research Overview.";
         }
       }
-
 
       return prompt;
     }
@@ -188,6 +189,20 @@ define(["ojs/ojarraydataprovider"], function (ArrayDataProvider) {
       // result.sort((a, b) => (a.id > b.id ? -1 : 1));
 
       return result;
+    }
+
+    /**
+     * Handles the action event of the Details button.
+     * Toggles the viewType between "overview" and "details".
+     */
+    handleDetailsAction() {
+      console.log("Details button clicked!");
+      const viewType = this.context.page.variables.viewType;
+      if (viewType && viewType.rawValue === "overview") {
+        this.context.page.variables.viewType.rawValue = "details";
+      } else {
+        this.context.page.variables.viewType.rawValue = "overview";
+      }
     }
   }
 
