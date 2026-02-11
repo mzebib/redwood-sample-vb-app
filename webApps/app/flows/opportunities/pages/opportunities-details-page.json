@@ -164,7 +164,13 @@
   "types": {
   },
   "eventListeners": {
-
+    "ojButtonOjAction": {
+      "chains": [
+        {
+          "chainId": "goToEdit"
+        }
+      ]
+    }
   },
   "imports": {
     "components": {
@@ -200,6 +206,21 @@
       "ojValidationNumber": {
         "path": "ojs/ojvalidation-number"
       }
+    }
+  },
+  "actionChains": {
+    "goToEdit": {
+      "actions": [
+        {
+          "action": "navigateToPage",
+          "parameters": {
+            "page": "opportunities-details-edit-page",
+            "params": {
+              "optyId": "{{ $flow.variables.opty.id }}"
+            }
+          }
+        }
+      ]
     }
   }
 }
