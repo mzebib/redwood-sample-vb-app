@@ -7,6 +7,11 @@ define(["ojs/ojarraydataprovider"], function (ArrayDataProvider) {
   const objectivesMap = new Map();
 
   class PageModule {
+    constructor(context) {
+      this.context = context;
+      this.router = this.context.parentRouter;
+    }
+
     createADP(items, key) {
       return new ArrayDataProvider(items, { keyAttributes: key });
     }
@@ -188,6 +193,15 @@ define(["ojs/ojarraydataprovider"], function (ArrayDataProvider) {
       // result.sort((a, b) => (a.id > b.id ? -1 : 1));
 
       return result;
+    }
+
+    goToOptyDetails() {
+      const optyId = this.context.variables.opty.id;
+      if (optyId) {
+        this.router.go({ path: `opty-details/${optyId}` });
+      } else {
+        console.error('Opportunity ID not found for navigation.');
+      }
     }
   }
 
