@@ -164,7 +164,13 @@
   "types": {
   },
   "eventListeners": {
-
+    "ojButtonOjAction": {
+      "chains": [
+        {
+          "chainId": "ButtonActionChain"
+        }
+      ]
+    }
   },
   "imports": {
     "components": {
