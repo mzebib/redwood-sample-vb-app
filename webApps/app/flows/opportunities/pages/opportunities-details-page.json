@@ -164,7 +164,27 @@
   "types": {
   },
   "eventListeners": {
-
+    "ojButtonOjAction": {
+      "chains": [
+        {
+          "chainId": "navigateToEdit"
+        }
+      ]
+    }
+  },
+  "chains": {
+    "navigateToEdit": {
+      "description": "Navigates to the edit page",
+      "actions": [
+        {
+          "module": "vb/action/actions",
+          "action": "navigateToPage",
+          "parameters": {
+            "page": "opportunities-details-edit"
+          }
+        }
+      ]
+    }
   },
   "imports": {
     "components": {
