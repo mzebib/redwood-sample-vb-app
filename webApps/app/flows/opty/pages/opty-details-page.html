@@ -17,8 +17,8 @@
             <oj-bind-text value="[[ $variables.opty.name ]]"></oj-bind-text>
           </div>
           <div class="oj-flex">
-            <oj-button label="Details" chroming="outlined">
-              <span class="oj-ux-ico-add-edit-page" slot="startIcon"></span>
+            <oj-button label="[[ $variables.viewType === 'overview' ? 'Details' : 'Overview' ]]" chroming="outlined" on-oj-action="[[$listeners.onDetailsButtonClick]]">
+              <span :class="[[ $variables.viewType === 'overview' ? 'oj-ux-ico-add-edit-page' : 'oj-ux-ico-home' ]]" slot="startIcon"></span>
             </oj-button>
           </div>
         </div>
@@ -418,6 +418,12 @@
             </div>
           </div>
         </oj-conveyor-belt>
+      </oj-bind-if>
+      <oj-bind-if test='[[ $variables.viewType === "details" ]]'>
+        <div class="oj-flex oj-sm-flex-direction-column oj-sm-align-items-center oj-sm-margin-12x-top" style="width: 100%">
+          <img src="resources/images/qual_emptydetails_redwood_64.png" style="width: 100px; height: 100px;">
+          <span class="oj-typography-body-lg oj-sm-margin-4x-top">No details available.</span>
+        </div>
       </oj-bind-if>
     </div>
   </div>
