@@ -164,7 +164,13 @@
   "types": {
   },
   "eventListeners": {
-
+    "buttonClickActionChain": {
+      "chains": [
+        {
+          "chainId": "navigateActionChain"
+        }
+      ]
+    }
   },
   "imports": {
     "components": {
