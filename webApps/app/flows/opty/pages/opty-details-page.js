@@ -94,8 +94,8 @@ define(["ojs/ojarraydataprovider"], function (ArrayDataProvider) {
       const oneDayInMilliseconds = 24 * 60 * 60 * 1000; // Number of milliseconds in a day
 
       const tomorrowDate = new Date(currentDate.getTime() + oneDayInMilliseconds);
-      const month = ('' + (tomorrowDate.getMonth() + 1)).slice(-2);
-      const day = ('' + tomorrowDate.getDate()).slice(-2);
+      const month = (' + (tomorrowDate.getMonth() + 1)).slice(-2);
+      const day = (' + tomorrowDate.getDate()).slice(-2);
       const year = String(tomorrowDate.getFullYear()).slice(-2);
 
       return `${month}/${day}/${year}`;
@@ -188,6 +188,19 @@ define(["ojs/ojarraydataprovider"], function (ArrayDataProvider) {
       // result.sort((a, b) => (a.id > b.id ? -1 : 1));
 
       return result;
+    }
+
+    navigateToEditOpty() {
+      // Assuming $navigation and $variables are available in the scope
+      // and opty.id holds the current opportunity's ID.
+      const optyId = this.vbInstance.get="variables.opty.id"; // Accessing vbInstance for variables
+      // Construct the URL for the edit page
+      this.vbInstance.get("$navigation").navigateToPage({
+        page: "opty-edit", 
+        params: {
+          optyId: optyId
+        }
+      });
     }
   }
 
