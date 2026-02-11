@@ -39,8 +39,37 @@ define([], () => {
       return formatter.format(value);
     }
 
-    formatDate(date) {
-      return new Date(date).toLocaleDateString('en-US');
+    formatDate(date, format = 'M/D/YY') {
+      const d = new Date(date);
+      const year = d.getFullYear();
+      const shortYear = String(year).slice(-2); // Last two digits of the year
+      const month = String(d.getMonth() + 1).padStart(2, '0'); // Zero-padded month
+      const day = String(d.getDate()).padStart(2, '0'); // Zero-padded day
+      const monthName = d.toLocaleString('default', { month: 'long' });
+      const monthNameShort = d.toLocaleString('default', { month: 'short' });
+
+      switch (format) {
+        case 'YYYY-MM-DD':
+          return `${year}-${month}-${day}`;
+        case 'YYYY/MM/DD':
+          return `${year}/${month}/${day}`;
+        case 'MM/DD/YYYY':
+          return `${month}/${day}/${year}`;
+        case 'M/DD/YYYY':
+          return `${d.getMonth() + 1}/${d.getDate()}/${year}`;
+        case 'MM/DD/YY':
+          return `${month}/${day}/${shortYear}`;
+        case 'M/D/YY':
+          return `${d.getMonth() + 1}/${d.getDate()}/${shortYear}`;
+        case 'MMMM D, YYYY':
+          return `${monthName} ${day}, ${year}`;
+        case 'MMM D, YYYY':
+          return `${monthNameShort} ${day}, ${year}`;
+        case 'DD-MM-YYYY':
+          return `${day}-${month}-${year}`;
+        default:
+          return new Date(date).toLocaleDateString('en-US');
+      }
     }
 
     truncateString(str, maxLength) {

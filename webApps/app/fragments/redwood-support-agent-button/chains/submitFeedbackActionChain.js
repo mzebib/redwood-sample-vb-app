@@ -30,7 +30,7 @@ define([
           summary: 'Feedback Received',
           displayMode: 'persist',
           type: 'confirmation',
-          message: 'Thanks! Our product team will review your feedback and will notify you of any updates.',
+          message: 'Thank you for your feedback! Our product team will review it and will notify you of any updates.',
         });
 
         await Actions.callChain(context, {
@@ -39,7 +39,7 @@ define([
       } else {
         await Actions.fireNotificationEvent(context, {
           summary: 'Feedback Processing Failed',
-          message: 'Sorry, your feedback couldn\'t be processed at this time. Please try again later.',
+          message: 'Sorry, feedback couldn\'t be processed at this time. Please try again later.',
           displayMode: 'persist',
         });
       }

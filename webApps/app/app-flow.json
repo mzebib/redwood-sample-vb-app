@@ -123,11 +123,13 @@
       "account": "string",
       "amount": "number",
       "closeDate": "string",
+      "currencyCode": "string",
       "id": "number",
       "name": "string",
       "owner": "string",
       "predWinProb": "number",
       "primaryContact": "string",
+      "salesMethod": "string",
       "salesStage": "string",
       "status": "string",
       "winProb": "number"

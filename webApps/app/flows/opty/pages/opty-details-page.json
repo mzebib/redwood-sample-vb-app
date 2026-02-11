@@ -51,12 +51,6 @@
       "type": "boolean",
       "defaultValue": true
     },
-    "id": {
-      "type": "number",
-      "required": true,
-      "input": "fromUrl",
-      "defaultValue": 1
-    },
     "leadsCount": {
       "type": "number",
       "defaultValue": 0
@@ -90,21 +84,6 @@
             ]
           }
         ]    },
-    "opty": {
-      "type": "application:optyType",
-      "defaultValue": {
-        "amount": 0,
-        "name": "Redline Hosting - Hybrid Generator",
-        "status": "Open",
-        "winProb": 20,
-        "owner": "Sales Rep",
-        "id": 1,
-        "closeDate": "3/31/26",
-        "account": "Redline Hosting",
-        "predWinProb": 20,
-        "salesStage": "01 - Qualification"
-      }
-    },
     "productListADP": {
       "type": "vb/ArrayDataProvider2",
       "defaultValue": {
