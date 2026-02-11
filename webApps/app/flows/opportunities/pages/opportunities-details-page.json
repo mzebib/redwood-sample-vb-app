@@ -166,6 +166,14 @@
   "eventListeners": {
 
   },
+  "actions": {
+    "ButtonActionChain": {
+      "module": "vb/action/builtin/navigateAction",
+      "parameters": {
+        "page": "opportunities-details-edit"
+      }
+    }
+  },
   "imports": {
     "components": {
       "oj-avatar": {
