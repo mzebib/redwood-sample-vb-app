@@ -17,7 +17,7 @@
             <oj-bind-text value="[[ $variables.opty.name ]]"></oj-bind-text>
           </div>
           <div class="oj-flex">
-            <oj-button label="Details" chroming="outlined">
+            <oj-button label="Details" chroming="outlined" on-oj-action="[[ $chain.navigateToEditOpty ]]" >
               <span class="oj-ux-ico-add-edit-page" slot="startIcon"></span>
             </oj-button>
           </div>
@@ -269,7 +269,7 @@
                               <oj-bind-if test="[[ $current.data.primaryContactFlag ]]">
                                 <span class="oj-badge">Primary</span>
                               </oj-bind-if>
-                            </div>
+                            </div_>
                           </oj-list-item-layout>
                         </oj-bind-if>
                       </template>
@@ -359,7 +359,7 @@
                               <oj-bind-if test="[[ $current.data.ownerFlag ]]">
                                 <span class="oj-badge">Owner</span>
                               </oj-bind-if>
-                            </div>
+                            </div_>
                           </oj-list-item-layout>
                         </oj-bind-if>
                       </template>
@@ -422,4 +422,3 @@
     </div>
   </div>
 </div>
-
