@@ -164,7 +164,16 @@
   "types": {
   },
   "eventListeners": {
-
+    "ojButtonOjAction": {
+      "chains": [
+        {
+          "chainId": "navigateActionChain",
+          "parameters": {
+            "page": "opportunities-details-edit-page"
+          }
+        }
+      ]
+    }
   },
   "imports": {
     "components": {
