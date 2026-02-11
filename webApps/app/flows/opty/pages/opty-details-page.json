@@ -89,7 +89,8 @@
             "actions": [
             ]
           }
-        ]    },
+        ]
+    },
     "opty": {
       "type": "application:optyType",
       "defaultValue": {
@@ -185,7 +186,13 @@
   "types": {
   },
   "eventListeners": {
-
+    "toggleViewType": {
+      "chains": [
+        {
+          "chain": "toggleViewType"
+        }
+      ]
+    }
   },
   "imports": {
     "components": {
@@ -220,6 +227,21 @@
     "modules": {
       "ojValidationNumber": {
         "path": "ojs/ojvalidation-number"
+      }
+    }
+  },
+  "chains": {
+    "toggleViewType": {
+      "root": "assignVariables",
+      "actions": {
+        "assignVariables": {
+          "module": "vb/action/builtin/assignVariablesAction",
+          "parameters": {
+            "$page.variables.viewType": {
+              "source": "{{ $page.variables.viewType === 'overview' ? 'details' : 'overview' }}"
+            }
+          }
+        }
       }
     }
   }
