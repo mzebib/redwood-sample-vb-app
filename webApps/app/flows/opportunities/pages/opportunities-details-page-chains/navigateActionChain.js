@@ -13,13 +13,17 @@ define([
 
     /**
      * @param {Object} context
+     * @param {Object} params
+     * @param {string} params.page The page to navigate to
      */
-    async run(context) {
+    async run(context, { page }) {
       const { $page, $flow, $application, $constants, $variables } = context;
 
-      const toOptyDetailsEdit = await Actions.navigateToPage(context, {
-        page: 'opportunities-details-edit-page',
-      });
+      if (page) {
+        await Actions.navigateToPage(context, {
+          page: page,
+        });
+      }
     }
   }
 
