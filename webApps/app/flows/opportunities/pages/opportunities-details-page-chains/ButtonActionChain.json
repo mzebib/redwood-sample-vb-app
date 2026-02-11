@@ -1,0 +1,15 @@
+{
+  "description": "Navigates to the edit page.",
+  "root": "navigateToEdit",
+  "actions": {
+    "navigateToEdit": {
+      "module": "vb/action/builtin/navigateAction",
+      "parameters": {
+        "page": "opportunities-details-edit",
+        "params": {
+          "optyId": "{{ $page.variables.optyId }}"
+        }
+      }
+    }
+  }
+}
