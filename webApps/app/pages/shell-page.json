@@ -1,6 +1,6 @@
 {
   "description": "",
-  "routerFlow": "opty",
+  "routerFlow": "opportunities",
   "variables": {
     "messagesADP": {
       "type": "vb/ArrayDataProvider2",

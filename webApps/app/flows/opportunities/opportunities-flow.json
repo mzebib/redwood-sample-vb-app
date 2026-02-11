@@ -1,0 +1,27 @@
+{
+  "id": "opportunities",
+  "description": "Flow main",
+  "defaultPage": "opportunities-details",
+  "services": {},
+  "types": {},
+  "variables": {
+    "opty": {
+      "type": "application:optyType",
+      "defaultValue": {
+        "amount": 250000,
+        "name": "Redline Hosting - Hybrid Generator",
+        "status": "Open",
+        "winProb": 20,
+        "owner": "Sales Rep",
+        "id": 1,
+        "closeDate": "2026-03-31",
+        "account": "Redline Hosting",
+        "predWinProb": 20,
+        "salesStage": "01 - Qualification",
+        "currencyCode": "USD",
+        "salesMethod": "Standard Sales Process"
+      }
+    }
+  },
+  "eventListeners": {}
+}
