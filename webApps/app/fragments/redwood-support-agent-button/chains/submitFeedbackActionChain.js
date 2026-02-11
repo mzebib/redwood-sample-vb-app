@@ -20,7 +20,7 @@ define([
       $variables.submitInProgress = true;
 
       const response = await Actions.callRest(context, {
-        endpoint: 'redwoodSupportAgentApi/postApiAgent',
+        endpoint: 'redwoodAgenticEngineeringAPI/postApiAgent',
         body: $variables.feedbackInfo,
       });
 

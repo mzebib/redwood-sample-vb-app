@@ -8,14 +8,14 @@
     "buttonAction": {
       "chains": [
         {
-          "chain": "navigateActionChain"
+          "chain": "navigateDetailsPageActionChain"
         }
       ]
     },
     "buttonAction2": {
       "chains": [
         {
-          "chain": "navigateActionChain"
+          "chain": "navigateDetailsPageActionChain"
         }
       ]
     }
