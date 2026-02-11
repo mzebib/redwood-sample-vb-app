@@ -17,7 +17,7 @@
             <oj-bind-text value="[[ $flow.variables.opty.name ]]"></oj-bind-text>
           </div>
           <div class="oj-flex">
-            <oj-button label="Details" chroming="outlined">
+            <oj-button label="Details" chroming="outlined" on-oj-action="[[ $listeners.ojButtonOjAction ]]">
               <span class="oj-ux-ico-add-edit-page" slot="startIcon"></span>
             </oj-button>
           </div>
@@ -162,7 +162,7 @@
             <div
               class="oj-flex oj-flex-item oj-sm-flex-initial oj-sm-flex-direction-column oj-sm-flex-wrap-nowrap foldout-content-panel panel-bg-color-even oj-sm-justify-content-space-between">
               <div
-                class="oj-flex oj-flex-item oj-sm-flex-initial oj-sm-flex-direction-column oj-sm-align-self-flex-start"
+                class="oj-flex oj-flex-item oj-sm-flex-initial oj-sm-.flex-direction-column oj-sm-align-self-flex-start"
                 style="width: 100%;">
                 <span class="oj-typography-heading-sm">Activities</span>
                 <div class="oj-divider-top oj-flex-item oj-sm-flex-initial panel-title-underline oj-sm-margin-2x-top">
@@ -422,4 +422,3 @@
     </div>
   </div>
 </div>
-
