@@ -7,10 +7,10 @@
   <div slot="body">
     <div class="oj-flex" style="width: 100%;">
       <oj-form-layout class="oj-formlayout-full-width" style="width: 100%;">
-        <oj-input-text label-hint="Name" required="true" readonly="true" value="{{ $variables.userMessage.name }}"></oj-input-text>
-        <oj-input-text label-hint="Email" required="true" readonly="true" value="{{ $variables.userMessage.email }}"></oj-input-text>
+        <oj-input-text label-hint="Name" required="true" readonly="true" value="{{ $variables.feedbackInfo.name }}"></oj-input-text>
+        <oj-input-text label-hint="Email" required="true" readonly="true" value="{{ $variables.feedbackInfo.email }}"></oj-input-text>
         <oj-text-area label-hint="Feedback" placeholder="What's broken or missing? Provide details here." rows="10"
-          required="true" value="{{ $variables.userMessage.feedback }}"></oj-text-area>
+          required="true" value="{{ $variables.feedbackInfo.feedback }}"></oj-text-area>
       </oj-form-layout>
     </div>
   </div>

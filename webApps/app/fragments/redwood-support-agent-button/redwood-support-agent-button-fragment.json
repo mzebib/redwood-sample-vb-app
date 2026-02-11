@@ -38,20 +38,24 @@
   },
   "types": {},
   "variables": {
-    "submitInProgress": {
-      "type": "boolean",
-      "defaultValue": false
-    },
-    "userMessage": {
+    "feedbackInfo": {
       "type": {
         "email": "string",
         "feedback": "string",
-        "name": "string"
+        "name": "string",
+        "objectType": "string",
+        "pageId": "string"
       },
       "defaultValue": {
+        "objectType": "opportunities",
+        "pageId": "opportunities-detail",
         "name": "Sales Rep",
         "email": "sales.rep@oracledemos.com"
       }
+    },
+    "submitInProgress": {
+      "type": "boolean",
+      "defaultValue": false
     }
 
   }

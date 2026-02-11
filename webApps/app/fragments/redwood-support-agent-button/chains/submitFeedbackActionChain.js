@@ -21,7 +21,7 @@ define([
 
       const response = await Actions.callRest(context, {
         endpoint: 'redwoodSupportAgentApi/postApiAgent',
-        body: $variables.userMessage,
+        body: $variables.feedbackInfo,
       });
 
       if (response.ok === true) {
