@@ -185,7 +185,13 @@
   "types": {
   },
   "eventListeners": {
-
+    "onDetailsButtonClick": {
+      "chains": [
+        {
+          "chainId": "toggleViewType"
+        }
+      ]
+    }
   },
   "imports": {
     "components": {
@@ -221,6 +227,11 @@
       "ojValidationNumber": {
         "path": "ojs/ojvalidation-number"
       }
+    }
+  },
+  "chains": {
+    "toggleViewType": {
+      "path": "chains/toggleViewType.json"
     }
   }
 }
