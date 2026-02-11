@@ -201,5 +201,21 @@
         "path": "ojs/ojvalidation-number"
       }
     }
+  },
+  "actionChains": {
+    "navigateToEdit": {
+      "root": "navigateTo",
+      "actions": {
+        "navigateTo": {
+          "module": "vb/action/builtin/navigateAction",
+          "parameters": {
+            "page": "opportunities-details-edit-page",
+            "params": {
+              "optyId": "{{ $flow.variables.opty.id }}"
+            }
+          }
+        }
+      }
+    }
   }
 }
