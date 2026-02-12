@@ -164,7 +164,16 @@
   "types": {
   },
   "eventListeners": {
-
+    "ojButtonOjAction": {
+      "chains": [
+        {
+          "chainId": "navigateDetailsEditPageActionChain",
+          "parameters": {
+            "optyId": "{{ $flow.variables.opty.id }}"
+          }
+        }
+      ]
+    }
   },
   "imports": {
     "components": {
