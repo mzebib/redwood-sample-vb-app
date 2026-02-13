@@ -164,7 +164,13 @@
   "types": {
   },
   "eventListeners": {
-
+    "ojButtonOjAction": {
+      "chains": [
+        {
+          "chain": "navigateDetailsEditPageActionChain"
+        }
+      ]
+    }
   },
   "imports": {
     "components": {
