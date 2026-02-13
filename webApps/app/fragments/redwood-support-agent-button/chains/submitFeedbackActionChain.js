@@ -21,7 +21,7 @@ define([
 
       const response = await Actions.callRest(context, {
         endpoint: 'redwoodAgenticEngineeringAPI/postApiAgent',
-        body: $variables.feedbackInfo,
+        body: $variables.userRequest,
       });
 
       if (response.ok === true) {
@@ -31,6 +31,12 @@ define([
           displayMode: 'persist',
           type: 'confirmation',
           message: 'Thank you for your feedback! Our product team will review it and will notify you of any updates.',
+        });
+
+        await Actions.resetVariables(context, {
+          variables: [
+    '$variables.userRequest',
+  ],
         });
 
         await Actions.callChain(context, {

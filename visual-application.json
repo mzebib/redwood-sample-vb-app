@@ -10,5 +10,6 @@
         }
     },
     "source.version": "2601",
-    "version": "1.0"
+    "version": "1.0",
+    "vanityUrl": "https://fa-etan-dev21-saasfademo1.ds-fa.oraclepdemos.com/redwood/agentic-engineering"
 }

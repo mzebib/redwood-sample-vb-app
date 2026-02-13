@@ -23,6 +23,12 @@ define([
       });
 
       if (ojDialogSupportOpen === false) {
+        await Actions.resetVariables(context, {
+          variables: [
+    '$variables.userRequest',
+  ],
+        });
+
         const ojDialogSupportOpen2 = await Actions.callComponentMethod(context, {
           selector: '#oj-dialog-support',
           method: 'open',

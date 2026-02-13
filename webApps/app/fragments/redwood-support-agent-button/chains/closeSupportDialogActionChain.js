@@ -23,6 +23,7 @@ define([
       });
 
       if (ojDialogSupportOpen === true) {
+
         const ojDialogSupportClose = await Actions.callComponentMethod(context, {
           selector: '#oj-dialog-support',
           method: 'close',
