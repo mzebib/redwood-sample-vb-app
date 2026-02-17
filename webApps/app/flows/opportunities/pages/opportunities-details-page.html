@@ -17,7 +17,7 @@
             <oj-bind-text value="[[ $flow.variables.opty.name ]]"></oj-bind-text>
           </div>
           <div class="oj-flex">
-            <oj-button label="Details" chroming="outlined">
+            <oj-button id="editButton" label="Details" chroming="outlined" on-oj-action="[[ $listeners.editButtonOjAction ]]">
               <span class="oj-ux-ico-add-edit-page" slot="startIcon"></span>
             </oj-button>
           </div>
@@ -372,6 +372,7 @@
                   <oj-bind-text value='[[ "View All Team Members (" + $variables.teamCount + ")" ]]'></oj-bind-text>
                 </a>
               </div>
+.
             </div>
 
             <div
@@ -422,4 +423,3 @@
     </div>
   </div>
 </div>
-
