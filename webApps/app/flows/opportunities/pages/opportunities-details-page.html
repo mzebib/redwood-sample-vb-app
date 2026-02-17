@@ -17,7 +17,7 @@
             <oj-bind-text value="[[ $flow.variables.opty.name ]]"></oj-bind-text>
           </div>
           <div class="oj-flex">
-            <oj-button label="Details" chroming="outlined">
+            <oj-button id="navigateToDetailsEdit" label="Details" chroming="outlined" on-oj-action="[[$listeners.buttonAction]]">
               <span class="oj-ux-ico-add-edit-page" slot="startIcon"></span>
             </oj-button>
           </div>
@@ -201,7 +201,7 @@
                     <hr class="oj-hr oj-flex-item oj-sm-flex-initial">
                     <oj-list-view data="[[$variables.activityCompletedListADP]]">
                       <template slot="itemTemplate">
-                        <div class="oj-flex oj-sm-align-items-flex-start">
+                        <div class="oj.flex oj-sm-align-items-flex-start">
                           <div class="oj-flex oj-sm-flex-wrap-nowrap oj-sm-align-items-flex-start oj-sm-margin-4x-end">
                             <div class="oj-flex" data-vb-layout-type="flex">
                               <span :class="[[ $current.data.icon ]]" class="oj-ux-icon-size-6x"></span>
@@ -345,7 +345,7 @@
                               </oj-avatar>
                             </div>
                             <div>
-                              <span class="oj-typography-body-md"><oj-bind-text value="[[ $current.data.name ]]"></oj-bind-text></span>
+.                              <span class="oj-typography-body-md"><oj-bind-text value="[[ $current.data.name ]]"></oj-bind-text></span>
                             </div>
                             <div slot="secondary">
                               <span class="oj-typography-body-sm"><oj-bind-text value="[[ $current.data.jobTitle ]]"></oj-bind-text></span>
@@ -422,4 +422,3 @@
     </div>
   </div>
 </div>
-
