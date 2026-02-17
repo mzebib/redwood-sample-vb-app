@@ -189,6 +189,17 @@ define(["ojs/ojarraydataprovider"], function (ArrayDataProvider) {
 
       return result;
     }
+
+    buttonAction(event) {
+      this.navigateToDetailsEditPageActionChain(event);
+    }
+
+    navigateToDetailsEditPageActionChain(event) {
+      const actionChain = this.getActionChain('navigateDetailsEditPageActionChain');
+      if (actionChain) {
+        actionChain(event);
+      }
+    }
   }
 
   return PageModule;
