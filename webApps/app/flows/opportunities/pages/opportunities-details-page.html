@@ -228,6 +228,24 @@
             </div>
 
             <div
+              class="oj-flex oj-flex-item oj-sm-flex-initial oj-sm-flex-direction-column oj-sm-flex-wrap-nowrap foldout-content-panel panel-bg-color-even oj-sm-justify-content-space-between">
+              <div
+                class="oj-flex oj-flex-item oj-sm-flex-initial oj-sm-flex-direction-column oj-sm-align-self-flex-start"
+                style="width: 100%;">
+                <span class="oj-typography-heading-sm">Calendar</span>
+                <div class="oj-divider-top oj-flex-item oj-sm-flex-initial panel-title-underline oj-sm-margin-2x-top">
+                </div>
+                <div
+                  class="oj-flex oj-sm-flex-direction-column oj-sm-flex-wrap-nowrap oj-sm-margin-4x-top foldout-content-panel-content">
+                  <div class="oj-flex oj-sm-flex-direction-column">
+                    <oj-c-calendar active-start-date="[[ $variables.date ]]" view="month">
+                    </oj-c-calendar>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div
               class="oj-flex oj-flex-item oj-sm-flex-initial oj-sm-flex-direction-column oj-sm-flex-wrap-nowrap foldout-content-panel panel-bg-color-odd oj-sm-justify-content-space-between">
               <div
                 class="oj-flex oj-flex-item oj-sm-flex-initial oj-sm-flex-direction-column oj-sm-align-self-flex-start"
@@ -285,7 +303,22 @@
             </div>
 
             <div
-              class="oj-flex oj-flex-item oj-sm-flex-initial oj-sm-flex-direction-column oj-sm-flex-wrap-nowrap foldout-content-panel panel-bg-color-even oj-sm-justify-content-space-between">
+              class="oj-flex oj-flex-item oj-sm-flex-initial oj-sm-flex-direction-column oj-sm-flex-wrap-nowrap foldout-content-panel panel-bg-.container {
+  padding: 1em;
+}
+
+.title {
+  font-family: "Oracle Sans", sans-serif;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.redwood-calendar {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 1em;
+}
+even oj-sm-justify-content-space-between">
               <div
                 class="oj-flex oj-flex-item oj-sm-flex-initial oj-sm-flex-direction-column oj-sm-align-self-flex-start"
                 style="width: 100%;">
@@ -422,4 +455,3 @@
     </div>
   </div>
 </div>
-
