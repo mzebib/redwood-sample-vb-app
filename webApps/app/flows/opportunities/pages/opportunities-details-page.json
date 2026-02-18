@@ -6,9 +6,24 @@
       "type": "number",
       "defaultValue": 3
     },
+    "activitiesGroupList": {
+      "type": "application:activityGroupType[]"
+    },
+    "activitiesGroupListADP": {
+      "type": "vb/ArrayDataProvider2",
+      "defaultValue": {
+        "data": "{{ $variables.activitiesGroupList }}",
+        "itemType": "application:activityGroupType",
+        "keyAttributes": "id"
+      }
+    },
+    "activitiesViewType": {
+      "type": "string",
+      "defaultValue": "activities-list"
+    },
     "activityCompletedList": {
       "type": "application:activityType[]",
-      "defaultValue": "[[ [\n                    {\n                        \"id\": 1,\n                        \"activityDate\": \"1/28/26\",\n                        \"activityOrder\": 1,\n                        \"activityStatus\": \"Completed\",\n                        \"description\": null,\n                        \"icon\": \"oj-ux-ico-chart-funnel-v\",\n                        \"title\": \"Opportunity Updated\",\n                        \"activityType\": \"LOG\",\n                        \"dueDate\": null,\n                        \"objectId\": 1,\n                        \"content\": null,\n                        \"owner\": \"Sales Rep\",\n                        \"activityTime\": \"10:30 AM\"\n                    },\n                    {\n                        \"id\": 2,\n                        \"activityDate\": \"1/28/26\",\n                        \"activityOrder\": 1,\n                        \"activityStatus\": \"Completed\",\n                        \"description\": null,\n                        \"icon\": \"oj-ux-ico-chart-funnel-v\",\n                        \"title\": \"Opportunity Updated\",\n                        \"activityType\": \"LOG\",\n                        \"dueDate\": null,\n                        \"objectId\": 1,\n                        \"content\": null,\n                        \"owner\": \"Sales Rep\",\n                        \"activityTime\": \"10:30 AM\"\n                    },\n                    {\n                        \"id\": 3,\n                        \"activityDate\": \"1/28/26\",\n                        \"activityOrder\": 1,\n                        \"activityStatus\": \"Completed\",\n                        \"description\": null,\n                        \"icon\": \"oj-ux-ico-chart-funnel-v\",\n                        \"title\": \"Opportunity Created\",\n                        \"activityType\": \"LOG\",\n                        \"dueDate\": null,\n                        \"objectId\": 1,\n                        \"content\": null,\n                        \"owner\": \"Sales Rep\",\n                        \"activityTime\": \"10:00 AM\"\n                    }\n                ] ]]"
+      "defaultValue": "[[ [\n            {\n                \"id\": 4,\n                \"activityDate\": \"2/6/26\",\n                \"activityOrder\": 1,\n                \"activityStatus\": \"Completed\",\n                \"description\": null,\n                \"icon\": \"oj-ux-ico-phone-on\",\n                \"title\": \"Discovery Call\",\n                \"activityType\": \"LOG\",\n                \"dueDate\": null,\n                \"objectId\": 1,\n                \"content\": null,\n                \"owner\": \"Sales Rep\",\n                \"activityTime\": \"10:00 AM\"\n            },\n            {\n                \"id\": 3,\n                \"activityDate\": \"2/4/26\",\n                \"activityOrder\": 1,\n                \"activityStatus\": \"Completed\",\n                \"description\": null,\n                \"icon\": \"oj-ux-ico-email\",\n                \"title\": \"Intro Email\",\n                \"activityType\": \"LOG\",\n                \"dueDate\": null,\n                \"objectId\": 1,\n                \"content\": null,\n                \"owner\": \"Sales Rep\",\n                \"activityTime\": \"9:00 AM\"\n            },            {\n                \"id\": 2,\n                \"activityDate\": \"2/2/26\",\n                \"activityOrder\": 1,\n                \"activityStatus\": \"Completed\",\n                \"description\": null,\n                \"icon\": \"oj-ux-ico-chart-funnel-v\",\n                \"title\": \"Opportunity Updated\",\n                \"activityType\": \"LOG\",\n                \"dueDate\": null,\n                \"objectId\": 1,\n                \"content\": null,\n                \"owner\": \"Sales Rep\",\n                \"activityTime\": \"12:00 PM\"\n            },\n            {\n                \"id\": 1,\n                \"activityDate\": \"2/2/26\",\n                \"activityOrder\": 1,\n                \"activityStatus\": \"Completed\",\n                \"description\": null,\n                \"icon\": \"oj-ux-ico-chart-funnel-v\",\n                \"title\": \"Opportunity Created\",\n                \"activityType\": \"LOG\",\n                \"dueDate\": null,\n                \"objectId\": 1,\n                \"content\": null,\n                \"owner\": \"Sales Rep\",\n                \"activityTime\": \"10:00 AM\"\n            }\n        ] ]]"
     },
     "activityCompletedListADP": {
       "type": "vb/ArrayDataProvider2",
@@ -26,6 +41,17 @@
         "itemType": "application:activityType"
       },
       "type": "vb/ArrayDataProvider2"
+    },
+    "calendarEventsList": {
+      "type": "object[]",
+      "defaultValue": "[[ [\n            {\n                \"id\": 1,\n                \"start\": \"2026-02-02T10:00:00.000\",\n                \"end\": \"2026-02-02T10:30:00.000\",\n                \"allDay\": false,\n                \"eventTitle\": \"Discovery Call\",\n                \"calendarProvider\": \"appointments\",\n                \"tertiaryText\": \"\",\n                \"metaText\": \"\",\n                \"icon\": \"oj-ux-ico-edit\",\n                \"iconLabel\": \"\"\n            }\n        ] ]]"
+    },
+    "calendarEventsListADP": {
+      "type": "vb/ArrayDataProvider2",
+      "defaultValue": {
+        "data": "{{ $variables.calendarEventsList }}",
+        "itemType": "any"
+      }
     },
     "contactsCount": {
       "type": "number",
@@ -156,7 +182,7 @@
     },
     "viewType": {
       "type": "string",
-      "defaultValue": "overview"
+      "defaultValue": "activities"
     }
 
   },
@@ -164,15 +190,54 @@
   "types": {
   },
   "eventListeners": {
+    "buttonAction": {
+      "chains": [
+        {
+          "chain": "changeViewTypeActionChain",
+          "parameters": {
+            "event": "{{$event}}",
+            "originalEvent": "{{$event.detail.originalEvent}}",
+            "viewType": "overview"
+          }
+        }
+      ]
+    },
+    "hyperlinkClick": {
+      "chains": [
+        {
+          "chain": "changeViewTypeActionChain",
+          "parameters": {
+            "viewType": "activities"
+          }
+        }
+      ]
+    },
+    "vbEnter": {
+      "chains": [
+        {
+          "parameters": {},
+          "chain": "vbEnterListener"
+        }
+      ]
+    }
 
   },
   "imports": {
     "components": {
+      "oj-accordion": {
+        "path": "ojs/ojaccordion"
+      },
       "oj-avatar": {
         "path": "ojs/ojavatar"
       },
       "oj-button": {
         "path": "ojs/ojbutton"
+      },
+      "oj-buttonset-one": {
+        "path": "ojs/ojbutton"
+      },
+      "oj-collapsible": {
+        "path": "ojs/ojcollapsible"
       },
       "oj-conveyor-belt": {
         "path": "ojs/ojconveyorbelt"
@@ -194,6 +259,12 @@
       },
       "oj-option": {
         "path": "ojs/ojoption"
+      },
+      "oj-sp-calendar": {
+        "path": "oj-sp/calendar/loader"
+      },
+      "oj-text-area": {
+        "path": "ojs/ojinputtext"
       }
     },
     "modules": {

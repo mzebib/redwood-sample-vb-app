@@ -1,0 +1,94 @@
+{
+  "description": "",
+  "eventListeners": {
+    "buttonAction": {
+      "chains": [
+        {
+          "chain": "openDrawerPopupCloseChain"
+        }
+      ]
+    },
+    "buttonAction2": {
+      "chains": [
+        {
+          "chain": "submitRequestActionChain"
+        }
+      ]
+    },
+    "generalDrawerTemplateSpClose": {
+      "chains": [
+        {
+          "chain": "closeDrawerPopupCloseChain"
+        }
+      ]
+    }
+  },
+  "events": {},
+  "imports": {
+    "components": {
+      "oj-button": {
+        "path": "ojs/ojbutton"
+      },
+      "oj-drawer-layout": {
+        "path": "ojs/ojdrawerlayout"
+      },
+      "oj-drawer-popup": {
+        "path": "ojs/ojdrawerpopup"
+      },
+      "oj-form-layout": {
+        "path": "ojs/ojformlayout"
+      },
+      "oj-input-text": {
+        "path": "ojs/ojinputtext"
+      },
+      "oj-sp-create-edit-drawer-template": {
+        "path": "oj-sp/create-edit-drawer-template/loader"
+      },
+      "oj-sp-general-drawer-template": {
+        "path": "oj-sp/general-drawer-template/loader"
+      },
+      "oj-text-area": {
+        "path": "ojs/ojinputtext"
+      },
+      "oj-validation-group": {
+        "path": "ojs/ojvalidationgroup"
+      }
+    }
+  },
+  "types": {},
+  "variables": {
+    "openDrawerPopup": {
+      "type": "boolean",
+      "defaultValue": false
+    },
+
+    "submitInProgress": {
+      "type": "boolean",
+      "defaultValue": false
+    },
+    "userRequest": {
+      "type": {
+        "appType": "string",
+        "email": "string",
+        "flowId": "string",
+        "gitConfig": "object",
+        "message": "string",
+        "name": "string",
+        "pageId": "string",
+        "sourceType": "string"
+      },
+      "defaultValue": {
+        "name": "Sales Rep",
+        "email": "sales.rep@oracledemos.com",
+        "sourceType": "vbs-extension",
+        "appType": "cx-sales",
+        "flowId": "opportunities",
+        "pageId": "opportunities-detail"
+      }
+    },
+    "validRequest": {
+      "type": "string"
+    }
+
+  }
+}

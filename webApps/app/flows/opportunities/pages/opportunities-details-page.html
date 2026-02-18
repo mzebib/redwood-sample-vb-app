@@ -32,7 +32,9 @@
           </div>
           <div class="oj-flex oj-sm-align-items-center oj-sm-justify-content-center oj-sm-padding-4x-start">
             <span class="oj-text-color-secondary oj-sm-padding-1x-end">Predicted Win Probability</span>
-            <a><oj-bind-text value="[[ $flow.variables.opty.predWinProb ]]"></oj-bind-text></a>
+            <a>
+              <oj-bind-text value="[[ $flow.variables.opty.predWinProb ]]"></oj-bind-text>
+            </a>
           </div>
           <!-- <div class="oj-flex oj-sm-align-items-center oj-sm-justify-content-center oj-sm-padding-4x-start">
             <span class="oj-text-color-secondary oj-sm-padding-1x-end">Win Probability</span>
@@ -67,7 +69,8 @@
       data-vb-layout-type="flex" style="width: 100%">
       <oj-bind-if test='[[ $variables.viewType === "overview" ]]'>
         <oj-conveyor-belt arrow-visibility="hidden" style="width: 100%;">
-          <div class="oj-flex oj-sm-flex-wrap-nowrap oj-sm-justify-content-space-between oj-sm-align-items-flex-start foldout-container"
+          <div
+            class="oj-flex oj-sm-flex-wrap-nowrap oj-sm-justify-content-space-between oj-sm-align-items-flex-start foldout-container"
             data-vb-layout-type="flex">
             <div
               class="oj-flex oj-flex-item oj-sm-flex-initial oj-sm-flex-direction-column oj-sm-flex-wrap-nowrap foldout-content-panel panel-bg-color-odd oj-sm-justify-content-space-between">
@@ -221,7 +224,7 @@
                 </div>
               </div>
               <div class="oj-flex">
-                <a>
+                <a on-click="[[$listeners.hyperlinkClick]]">
                   <oj-bind-text value='[[ "View All Activities (" + $variables.activitiesCount + ")" ]]'></oj-bind-text>
                 </a>
               </div>
@@ -419,7 +422,139 @@
           </div>
         </oj-conveyor-belt>
       </oj-bind-if>
+
+      <oj-bind-if test='[[ $variables.viewType === "activities" ]]'>
+        <div class="oj-flex oj-sm-padding-12x-horizontal oj-sm-padding-4x-vertical" style="width: 100%;">
+          <div class="oj-flex oj-sm-justify-content-space-between oj-sm-align-items-center" style="width: 100%;">
+            <div class="oj-flex">
+              <oj-button label="Go to Overview" chroming="borderless" on-oj-action="[[$listeners.buttonAction]]">
+                <span slot="startIcon" class="oj-ux-ico-arrow-left"></span>
+              </oj-button>
+            </div>
+
+            <div class="oj-flex">
+              <oj-buttonset-one class="oj-sm-margin-4x-end oj-button-sm" display="icons"
+                value="{{ $variables.activitiesViewType }}">
+                <oj-option value="activities-list">
+                  <span class="oj-ux-ico-list" slot="startIcon"></span>
+                </oj-option>
+                <oj-option value="activities-calendar">
+                  <span class="oj-ux-ico-calendar" slot="startIcon"></span>
+                </oj-option>
+              </oj-buttonset-one>
+              <oj-button chroming="outlined" display="icons" class="oj-button-sm">
+                <span slot="startIcon" class="oj-ux-ico-refresh"></span>
+              </oj-button>
+            </div>
+          </div>
+
+          <div class="oj-sm-margin-4x-top" style="width: 100%; height: calc(100vh - 400px); overflow: scroll;">
+            <oj-bind-if test='[[ $variables.activitiesViewType === "activities-list" ]]'>
+              <oj-bind-for-each data="[[ $variables.activitiesGroupListADP ]]" class="oj-flex-bar-start">
+                <template data-oj-as="activityGroup">
+                  <oj-accordion style="width: 50%; min-width: 800px">
+                    <oj-collapsible :id="[['oj-collapsible--1924814133-1-' + $current.index]]" expanded="true">
+                      <h1 slot="header" class="oj-header-border">
+                        <oj-bind-text value="[[ activityGroup.data.headerText ]]"></oj-bind-text>
+                      </h1>
+                      <div class="oj-flex" style="width: 100%">
+                        <oj-list-view data='[[ $functions.createADP(activityGroup.data.items, "id") ]]'
+                          style="width: 100%;" class="oj-listview-full-width">
+                          <template slot="itemTemplate">
+                            <oj-list-item-layout class="oj-listitemlayout-padding-off">
+                              <div slot="leading">
+                                <span :class="[[ $current.data.icon ]]" class="oj-ux-icon-size-6x"></span>
+                              </div>
+                              <div>
+                                <oj-bind-if test='[[ $current.data.activityType !== "LOG" ]]'>
+                                  <a class="oj-typography-body-md oj-typography-bold">
+                                    <oj-bind-text value="[[ $current.data.title ]]"></oj-bind-text>
+                                  </a>
+                                </oj-bind-if>
+                                <oj-bind-if test='[[ $current.data.activityType === "LOG" ]]'>
+                                  <span class="oj-typography-body-md oj-typography-bold">
+                                    <oj-bind-text value="[[ $current.data.title ]]"></oj-bind-text>
+                                  </span>
+                                </oj-bind-if>
+                              </div>
+                              <div slot="secondary">
+                                <oj-bind-text value="[[ $current.data.owner ]]"></oj-bind-text>
+                              </div>
+                              <div slot="tertiary">
+                                <oj-bind-if test='[[ activityGroup.data.status === "Pending" ]]'>
+                                  <span class="oj-typography-body-md"><oj-bind-text value="[[ $functions.getTomorrowDate() ]]"></oj-bind-text></span>
+                                </oj-bind-if>
+                                <oj-bind-if test='[[ activityGroup.data.status !== "Pending" ]]'>
+                                  <span class="oj-typography-body-md"><oj-bind-text value="[[ $current.data.activityDate ]]"></oj-bind-text></span>
+                                </oj-bind-if>
+                              </div>
+                              <div slot="trailing">
+                                <span class="oj-typography-body-sm"><oj-bind-text value="[[ $current.data.activityTime ]]"></oj-bind-text></span>
+                              </div>
+                              <div slot="action">
+                                <oj-bind-if test='[[ $current.data.activityType === "NOTE" ]]'>
+                                  <oj-menu-button display="icons" chroming="borderless">
+                                    <span slot="endIcon" class="oj-ux-icon-size-4x oj-ux-ico-overflow-h"></span>
+                                    <oj-menu slot="menu">
+                                      <oj-option value="edit">Edit</oj-option>
+                                      <oj-option value="delete-note">Delete Note</oj-option>
+                                    </oj-menu>
+                                  </oj-menu-button>
+                                </oj-bind-if>
+
+                                <oj-bind-if test='[[ $current.data.activityType === "APPOINTMENT" ]]'>
+                                  <oj-menu-button display="icons" chroming="borderless">
+                                    <span slot="endIcon" class="oj-ux-icon-size-4x oj-ux-ico-overflow-h"></span>
+                                    <oj-menu slot="menu">
+                                      <oj-option value="edit">Edit</oj-option>
+                                      <oj-option value="delete-appointment">Delete Appointment</oj-option>
+                                    </oj-menu>
+                                  </oj-menu-button>
+                                </oj-bind-if>
+
+                                <oj-bind-if test='[[ $current.data.activityType === "TASK" ]]'>
+                                  <oj-menu-button display="icons" chroming="borderless">
+                                    <span slot="endIcon" class="oj-ux-icon-size-4x oj-ux-ico-overflow-h"></span>
+                                    <oj-menu slot="menu">
+                                      <oj-option value="edit">Edit</oj-option>
+                                      <oj-option value="delete-task">Delete Task</oj-option>
+                                    </oj-menu>
+                                  </oj-menu-button>
+                                </oj-bind-if>
+
+                                <oj-bind-if test='[[ $current.data.activityType === "LOG" ]]'>
+                                  <oj-menu-button display="icons" chroming="borderless" disabled="true">
+                                    <span slot="endIcon" class="oj-ux-icon-size-4x"></span>
+                                    <oj-menu slot="menu">
+                                    </oj-menu>
+                                  </oj-menu-button>
+                                </oj-bind-if>
+                              </div>
+                            </oj-list-item-layout>
+
+                            <div
+                              class="oj-flex oj-sm-justify-content-space-between oj-sm-margin-2x-top oj-sm-padding-10x-horizontal"
+                              style="width: 100%;">
+                              <oj-bind-if test='[[ $current.data.activityType === "NOTE" ]]'>
+                                <oj-text-area value="{{ $current.data.description }}" max-rows="-1" readonly="true">
+                                </oj-text-area>
+                              </oj-bind-if>
+                            </div>
+                          </template>
+                        </oj-list-view>
+                      </div>
+                    </oj-collapsible>
+                  </oj-accordion>
+                </template>
+              </oj-bind-for-each>
+            </oj-bind-if>
+            <oj-bind-if test='[[ $variables.activitiesViewType === "activities-calendar" ]]'>
+              <oj-sp-calendar calendar-events="[[ $variables.calendarEventsListADP ]]"
+                visible-calendars='["appointments"]' calendar-providers='[{"name":"appointments","color":"blue"}]'></oj-sp-calendar>
+            </oj-bind-if>
+          </div>
+        </div>
+      </oj-bind-if>
     </div>
   </div>
 </div>
-

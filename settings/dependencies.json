@@ -9,7 +9,8 @@
         "foldout-layout": "2410.0.3",
         "dynamic-foldout-page": "2410.0.3",
         "smart-search": "2410.0.3",
-        "create-edit-drawer-template": "2410.0.3"
+        "create-edit-drawer-template": "2410.0.3",
+        "calendar": "2410.0.3"
       }
     }
   }

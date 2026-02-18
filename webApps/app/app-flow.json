@@ -226,10 +226,11 @@
   "requirejs": {
     "paths": {
       "oj-dynamic": "https://static.oracle.com/cdn/jet/packs/oj-dynamic/16.1.6/min/",
-      "oj-fa-bigjs": "https://static.oracle.com/cdn/spectra-ui/3rdParty/2404.0.0/big.js-6.2.1/",
-      "oj-oacp": "https://static.oracle.com/cdn/oars/packs/oj-oacp/2404.0.0/min",
-      "oj-oars": "https://static.oracle.com/cdn/oars/packs/oj-oars/2404.0.0/min",
-      "oj-sp": "https://static.oracle.com/cdn/spectra-ui/oj-sp/2404.0.0/"
+      "oj-fa-bigjs": "https://static.oracle.com/cdn/spectra-ui/3rdParty/2507.0.1/big.js-6.2.1/",
+      "oj-oacp": "https://static.oracle.com/cdn/oars/packs/oj-oacp/2410.0.2/min",
+      "oj-oars": "https://static.oracle.com/cdn/oars/packs/oj-oars/2410.0.2/min",
+      "oj-sp": "https://static.oracle.com/cdn/spectra-ui/oj-sp/2410.0.3/",
+      "oj-sp-3rdparty-fullcalendar": "https://static.oracle.com/cdn/spectra-ui/3rdParty/2507.0.1/fullcalendar-6.1.8/lib"
 
     },
     "bundles": {

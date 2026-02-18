@@ -1,0 +1,26 @@
+<oj-button display="icons" class="oj-button-lg" chroming="callToAction" on-oj-action="[[$listeners.buttonAction]]">
+  <span class="oj-ux-ico-artificial-intelligence2" slot="startIcon"></span>
+</oj-button>
+
+
+<oj-drawer-popup edge="end" auto-dismiss="none" close-gesture="none" opened="{{ $variables.openDrawerPopup }}">
+  <oj-sp-general-drawer-template drawer-title="Agentic Engineering" drawer-size="lg"
+    on-sp-close="[[$listeners.generalDrawerTemplateSpClose]]">
+    <div style="width: 700px;">
+      <div style="width: 100%; height: calc(100vh - 170px); overflow: scroll;">
+        <oj-validation-group valid="{{ $variables.validRequest }}">
+          <oj-form-layout class="oj-formlayout-full-width" style="width: 100%;">
+              <!-- <oj-input-text label-hint="Name" required="true" readonly="true" value="{{ $variables.userRequest.name }}"></oj-input-text>
+          <oj-input-text label-hint="Email" required="true" readonly="true" value="{{ $variables.userRequest.email }}"></oj-input-text> -->
+            <oj-text-area label-hint="Message" placeholder="What's missing? Provide details here." rows="20"
+              required="true" value="{{ $variables.userRequest.message }}"></oj-text-area>
+          </oj-form-layout>
+        </oj-validation-group>
+      </div>
+      <div class="oj-flex oj-sm-justify-content-flex-end">
+        <oj-button chroming="callToAction" on-oj-action="[[$listeners.buttonAction2]]"
+          disabled="[[ $variables.submitInProgress ]]">Submit</oj-button>
+      </div>
+    </div>
+  </oj-sp-general-drawer-template>
+</oj-drawer-popup>

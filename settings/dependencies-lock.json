@@ -15,6 +15,8 @@
     "oj-sp": {
       "version": "2410.0.3",
       "components": {
+        "calendar": "2410.0.3",
+        "list-item-template": "2410.0.3",
         "common-util": "2410.0.3",
         "common-strings": "2410.0.3",
         "foldout-panel-overflow": "2410.0.3",
@@ -22,6 +24,7 @@
         "create-edit-drawer-template": "2410.0.3",
         "section": "2410.0.3",
         "summarizing-collection": "2410.0.3",
+        "empty-state": "2410.0.3",
         "header-navigation": "2410.0.3",
         "general-drawer-template": "2410.0.3",
         "common": "2410.0.3",
@@ -44,6 +47,7 @@
         "utils": "16.1.6",
         "providers": "16.1.6"
       }
-    }
+    },
+    "oj-sp-ref-fullcalendar": "6.1.8"
   }
 }

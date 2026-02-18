@@ -4,7 +4,6 @@ define(["ojs/ojarraydataprovider"], function (ArrayDataProvider) {
   const actionTypesMap = new Map();
   const activitiesGroupMap = new Map();
   const activitiesMap = new Map();
-  const objectivesMap = new Map();
 
   class PageModule {
     createADP(items, key) {
@@ -71,24 +70,6 @@ define(["ojs/ojarraydataprovider"], function (ArrayDataProvider) {
       });
     }
 
-    getObjectivesList() {
-      return [...objectivesMap.values()];
-    }
-
-    setObjectivesList(responseText) {
-      let jsonText = responseText.replaceAll("```json", "");
-      jsonText = jsonText.replaceAll("```JSON", "");
-      jsonText = jsonText.replaceAll("```", "");
-      jsonText = jsonText.replaceAll("\n", "");
-
-      const data = JSON.parse(jsonText);
-
-      objectivesMap.clear();
-      data.objectives.forEach(objective => {
-        objectivesMap.set(objective.id, objective);
-      });
-    }
-
     getTomorrowDate() {
       const currentDate = new Date();
       const oneDayInMilliseconds = 24 * 60 * 60 * 1000; // Number of milliseconds in a day
@@ -110,9 +91,9 @@ define(["ojs/ojarraydataprovider"], function (ArrayDataProvider) {
       return month + " " + day + ", " + year;
     }
 
-    groupActivitiesByDate(activitiesPendingList, activitiesCompetedList) {
+    groupActivitiesByDate(activitiesPendingList, activitiesCompletedList) {
       let activitiesPendingListCopy = JSON.parse(JSON.stringify(activitiesPendingList));
-      let activitiesCompetedListCopy = JSON.parse(JSON.stringify(activitiesCompetedList));
+      let activitiesCompletedListCopy = JSON.parse(JSON.stringify(activitiesCompletedList));
 
       activitiesGroupMap.clear();
       activitiesMap.clear();
@@ -135,10 +116,10 @@ define(["ojs/ojarraydataprovider"], function (ArrayDataProvider) {
         }
       }
 
-      if (activitiesCompetedListCopy && activitiesCompetedListCopy.length > 0) {
-        activitiesCompetedListCopy.sort((a, b) => (a.activityDate > b.activityDate ? -1 : 1));
+      if (activitiesCompletedListCopy && activitiesCompletedListCopy.length > 0) {
+        activitiesCompletedListCopy.sort((a, b) => (a.activityDate > b.activityDate ? -1 : 1));
 
-        for (let activity of activitiesCompetedListCopy) {
+        for (let activity of activitiesCompletedListCopy) {
           let items = [];
           let activityDate = this.formatActivityDate(activity.activityDate);
 
