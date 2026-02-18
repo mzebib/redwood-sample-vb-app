@@ -157,8 +157,11 @@
     "viewType": {
       "type": "string",
       "defaultValue": "overview"
+    },
+    "date": {
+      "type": "string",
+      "defaultValue": "2024-07-30"
     }
-
   },
   "metadata": {},
   "types": {
@@ -194,6 +197,9 @@
       },
       "oj-option": {
         "path": "ojs/ojoption"
+      },
+      "oj-c-calendar": {
+        "path": "oj-c/calendar/loader"
       }
     },
     "modules": {
