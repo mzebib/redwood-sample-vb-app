@@ -43,8 +43,7 @@
       "type": "vb/ArrayDataProvider2"
     },
     "calendarEventsList": {
-      "type": "object[]",
-      "defaultValue": "[[ [\n            {\n                \"id\": 1,\n                \"start\": \"2026-02-02T10:00:00.000\",\n                \"end\": \"2026-02-02T10:30:00.000\",\n                \"allDay\": false,\n                \"eventTitle\": \"Discovery Call\",\n                \"calendarProvider\": \"appointments\",\n                \"tertiaryText\": \"\",\n                \"metaText\": \"\",\n                \"icon\": \"oj-ux-ico-edit\",\n                \"iconLabel\": \"\"\n            }\n        ] ]]"
+      "type": "object[]"
     },
     "calendarEventsListADP": {
       "type": "vb/ArrayDataProvider2",
@@ -217,6 +216,9 @@
         {
           "parameters": {},
           "chain": "vbEnterListener"
+        },
+        {
+          "chain": "fetchActivitiesAndTransformForCalendar"
         }
       ]
     }
