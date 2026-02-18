@@ -1,0 +1,33 @@
+{
+  "description": "Fetches activities and transforms them for the calendar view.",
+  "root": "callRestGetActivities",
+  "actions": {
+    "callRestGetActivities": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "businessObjects/getall_Activity"
+      },
+      "outcomes": {
+        "success": "callModuleFunctionTransformActivities"
+      }
+    },
+    "callModuleFunctionTransformActivities": {
+      "module": "pages/opportunities-details-page",
+      "functionName": "transformActivitiesForCalendar",
+      "parameters": {
+        "activities": "{{ $chain.results.callRestGetActivities.body.items }}"
+      },
+      "outcomes": {
+        "success": "assignVariablesCalendarEventsList"
+      }
+    },
+    "assignVariablesCalendarEventsList": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.calendarEventsList": {
+          "source": "{{ $chain.results.callModuleFunctionTransformActivities }}"
+        }
+      }
+    }
+  }
+}
