@@ -182,7 +182,7 @@
     },
     "viewType": {
       "type": "string",
-      "defaultValue": "activities"
+      "defaultValue": "overview"
     }
 
   },
