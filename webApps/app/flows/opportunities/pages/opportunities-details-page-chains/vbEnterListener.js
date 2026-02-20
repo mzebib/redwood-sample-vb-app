@@ -21,6 +21,13 @@ define([
       await Actions.callChain(context, {
         chain: 'fetchActivitiesActionChain',
       });
+
+      const calendarEvents = await $page.functions.getCalendarEvents($variables.activityPendingList);
+
+      await Actions.assignVariable(context, {
+        variable: '$page.variables.calendarEventsList',
+        value: calendarEvents,
+      });
     }
   }
 
