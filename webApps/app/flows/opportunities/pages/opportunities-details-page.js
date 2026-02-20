@@ -1,4 +1,4 @@
-define(["ojs/ojarraydataprovider"], function (ArrayDataProvider) {
+define(["ojs/ojarraydataprovider", "text!resources/data/calendar-events.json", "fullcalendar"], function (ArrayDataProvider, calendarEvents, FullCalendar) {
   'use strict';
 
   const actionTypesMap = new Map();
@@ -6,6 +6,10 @@ define(["ojs/ojarraydataprovider"], function (ArrayDataProvider) {
   const activitiesMap = new Map();
 
   class PageModule {
+    constructor() {
+      this.calendarEvents = JSON.parse(calendarEvents);
+    }
+
     createADP(items, key) {
       return new ArrayDataProvider(items, { keyAttributes: key });
     }
@@ -169,6 +173,29 @@ define(["ojs/ojarraydataprovider"], function (ArrayDataProvider) {
       // result.sort((a, b) => (a.id > b.id ? -1 : 1));
 
       return result;
+    }
+
+    /**
+     * Initializes the calendar.
+     * @param {HTMLElement} calendarEl The calendar element.
+     */
+    initializeCalendar(calendarEl) {
+      const calendar = new FullCalendar.Calendar(calendarEl, {
+        initialView: 'dayGridMonth',
+        events: this.calendarEvents,
+      });
+      calendar.render();
+    }
+
+    /**
+     * Page view model lifecycle method.
+     * @param {Object} info The page context.
+     */
+    onPageEntered(info) {
+      const calendarEl = document.getElementById('calendar');
+      if (calendarEl) {
+        this.initializeCalendar(calendarEl);
+      }
     }
   }
 
