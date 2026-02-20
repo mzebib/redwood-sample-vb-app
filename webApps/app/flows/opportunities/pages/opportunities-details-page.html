@@ -549,8 +549,12 @@
               </oj-bind-for-each>
             </oj-bind-if>
             <oj-bind-if test='[[ $variables.activitiesViewType === "activities-calendar" ]]'>
-              <oj-sp-calendar calendar-events="[[ $variables.calendarEventsListADP ]]"
-                visible-calendars='["appointments"]' calendar-providers='[{"name":"appointments","color":"blue"}]'></oj-sp-calendar>
+              <div style="width: 100%; height: 100%;">
+                <oj-sp-calendar calendar-events="[[ $variables.calendarEventsListADP ]]"
+                  view="month" visible-calendars='["all"]'
+                  calendar-providers='[{"name": "all", "label": "All", "color": "#21638f"}]'>
+                </oj-sp-calendar>
+              </div>
             </oj-bind-if>
           </div>
         </div>
