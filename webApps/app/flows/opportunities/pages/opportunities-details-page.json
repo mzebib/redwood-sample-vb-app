@@ -260,11 +260,11 @@
       "oj-option": {
         "path": "ojs/ojoption"
       },
-      "oj-sp-calendar": {
-        "path": "oj-sp/calendar/loader"
-      },
       "oj-text-area": {
         "path": "ojs/ojinputtext"
+      },
+      "full-calendar": {
+        "path": "fullcalendar"
       }
     },
     "modules": {
