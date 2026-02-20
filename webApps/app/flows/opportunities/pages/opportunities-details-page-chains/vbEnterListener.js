@@ -21,6 +21,10 @@ define([
       await Actions.callChain(context, {
         chain: 'fetchActivitiesActionChain',
       });
+
+      const allActivities = [...$variables.activityPendingList, ...$variables.activityCompletedList];
+
+      $variables.calendarEventsList = $page.functions.transformActivitiesToCalendarEvents(allActivities);
     }
   }
 
