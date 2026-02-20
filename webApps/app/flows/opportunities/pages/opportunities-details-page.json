@@ -19,7 +19,7 @@
     },
     "activitiesViewType": {
       "type": "string",
-      "defaultValue": "activities-list"
+      "defaultValue": "activities-calendar"
     },
     "activityCompletedList": {
       "type": "application:activityType[]",
