@@ -1,7 +1,7 @@
 {
   "id": "opportunities",
   "description": "Flow main",
-  "defaultPage": "opportunities-details",
+  "defaultPage": "opportunities-calendar",
   "services": {},
   "types": {},
   "variables": {
@@ -21,6 +21,11 @@
         "currencyCode": "USD",
         "salesMethod": "Standard Sales Process"
       }
+    }
+  },
+  "pages": {
+    "opportunities-calendar": {
+      "page": "opportunities-calendar-page"
     }
   },
   "eventListeners": {}
