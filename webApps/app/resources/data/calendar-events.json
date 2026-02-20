@@ -1,0 +1,20 @@
+[
+  {
+    "id": "1",
+    "title": "Sales Meeting",
+    "start": "2024-07-29T10:00:00",
+    "end": "2024-07-29T11:00:00"
+  },
+  {
+    "id": "2",
+    "title": "Follow up with Redline Hosting",
+    "start": "2024-07-30T14:00:00",
+    "end": "2024-07-30T15:00:00"
+  },
+  {
+    "id": "3",
+    "title": "Product Demo",
+    "start": "2024-07-31T11:00:00",
+    "end": "2024-07-31T12:00:00"
+  }
+]
