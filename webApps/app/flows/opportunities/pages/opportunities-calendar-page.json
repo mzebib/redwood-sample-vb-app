@@ -1,0 +1,10 @@
+{
+  "pageModelVersion": "22.10.0",
+  "title": "Activities Calendar",
+  "description": "Page for displaying activities in a calendar view",
+  "variables": {},
+  "actions": {},
+  "chains": {},
+  "eventListeners": {},
+  "imports": {}
+}
