@@ -22,6 +22,47 @@ define(["ojs/ojarraydataprovider"], function (ArrayDataProvider) {
       return total;
     }
 
+    getCalendarEvents(activities) {
+      if (!activities) {
+        return [];
+      }
+
+      return activities.map(activity => {
+        return {
+          id: activity.id,
+          title: activity.title,
+          start: this.formatDateToISO(activity.activityDate, activity.activityTime),
+          end: this.formatDateToISO(activity.activityDate, activity.activityTime, 30),
+          calendar: 'all',
+          color: '#21638f'
+        };
+      });
+    }
+
+    formatDateToISO(dateStr, timeStr, addMinutes) {
+      const date = new Date(dateStr);
+      const timeParts = timeStr.match(/(\d+):(\d+)\s*(AM|PM)/i);
+
+      let hours = parseInt(timeParts[1], 10);
+      const minutes = parseInt(timeParts[2], 10);
+      const ampm = timeParts[3].toUpperCase();
+
+      if (ampm === 'PM' && hours < 12) {
+        hours += 12;
+      }
+      if (ampm === 'AM' && hours === 12) {
+        hours = 0;
+      }
+
+      date.setHours(hours, minutes);
+
+      if (addMinutes) {
+        date.setMinutes(date.getMinutes() + addMinutes);
+      }
+
+      return date.toISOString();
+    }
+    
     getGuidancePrompt(activityCompletedList, activityPendingList, opty) {
       let prompt = 'I am a B2B sales rep trying to qualify an opportunity for the following account: ' + opty.account + ". ";
       prompt += 'Generate actions for the following objectives: 1. Complete Research & Introduction, 2. Complete Discovery, and 3. Present the Solution to the Prospect. The actions may only include: Create Appointment, Create Task, Create Note, or Send Email. Only include relevant actions and spell the actions exactly as mentioned. Return response in the following JSON format: objectives (id, objective, status (PENDING) and actions (id, title. description, actionType, status (PENDING) fields) fields. The title should be 2-5 word summary of description and different from the actionType. Only return JSON object do not return any other text.';
