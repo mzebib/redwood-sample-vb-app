@@ -1,4 +1,4 @@
-define(["ojs/ojcore", "knockout", "ojs/ojarraydataprovider"], function (oj, ko, ArrayDataProvider) {
+define(["ojs/ojarraydataprovider"], function (ArrayDataProvider) {
   'use strict';
 
   const actionTypesMap = new Map();
@@ -6,11 +6,6 @@ define(["ojs/ojcore", "knockout", "ojs/ojarraydataprovider"], function (oj, ko, 
   const activitiesMap = new Map();
 
   class PageModule {
-
-    constructor() {
-      this.calendarDate = ko.observable(new Date().toISOString());
-    }
-
     createADP(items, key) {
       return new ArrayDataProvider(items, { keyAttributes: key });
     }
@@ -174,26 +169,6 @@ define(["ojs/ojcore", "knockout", "ojs/ojarraydataprovider"], function (oj, ko, 
       // result.sort((a, b) => (a.id > b.id ? -1 : 1));
 
       return result;
-    }
-
-    onCalendarClick(event) {
-      console.log("Calendar clicked", event.detail);
-    }
-
-    transformActivitiesToCalendarEvents(activities) {
-      if (!activities) {
-        return [];
-      }
-      return activities.map(activity => {
-        return {
-          id: activity.id,
-          title: activity.title,
-          start: activity.activityDate,
-          end: activity.activityDate,
-          calendar: 'appointments',
-          color: 'blue'
-        };
-      });
     }
   }
 
