@@ -30,7 +30,7 @@
             <span class="oj-text-color-secondary oj-sm-padding-1x-end">Status</span>
             <span><oj-bind-text value="[[ $flow.variables.opty.status ]]"></oj-bind-text></span>
           </div>
-          <div class="oj-flex oj-sm-align-items.center oj-sm-justify-content-center oj-sm-padding-4x-start">
+          <div class="oj-flex oj-sm-align-items-center oj-sm-justify-content-center oj-sm-padding-4x-start">
             <span class="oj-text-color-secondary oj-sm-padding-1x-end">Predicted Win Probability</span>
             <a>
               <oj-bind-text value="[[ $flow.variables.opty.predWinProb ]]"></oj-bind-text>
@@ -549,7 +549,7 @@
               </oj-bind-for-each>
             </oj-bind-if>
             <oj-bind-if test='[[ $variables.activitiesViewType === "activities-calendar" ]]'>
-              <oj-sp-calendar id="calendar" activity-data="[[ $variables.activitiesGroupListADP ]]"
+              <oj-sp-calendar id="calendar" activity-data="[[ $variables.calendarActivitiesADP ]]"
                 class="oj-flex-item oj-sm-flex-initial">
               </oj-sp-calendar>
             </oj-bind-if>
