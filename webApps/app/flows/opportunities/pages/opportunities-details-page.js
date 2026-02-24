@@ -170,6 +170,40 @@ define(["ojs/ojarraydataprovider"], function (ArrayDataProvider) {
 
       return result;
     }
+
+    getCalendarEvents(activitiesPendingList, activitiesCompletedList) {
+      const allActivities = [...activitiesPendingList, ...activitiesCompletedList];
+      const appointments = allActivities.filter(activity => activity.activityType === 'APPOINTMENT');
+
+      return appointments.map(appointment => {
+        const startDate = new Date(appointment.activityDate);
+        const [time, ampm] = appointment.activityTime.split(' ');
+        let [hours, minutes] = time.split(':');
+
+        if (ampm === 'PM' && hours !== '12') {
+          hours = parseInt(hours, 10) + 12;
+        } else if (ampm === 'AM' && hours === '12') {
+          hours = 0;
+        }
+
+        startDate.setHours(hours, minutes);
+
+        const endDate = new Date(startDate.getTime() + 30 * 60000); // Assuming 30 minute duration
+
+        return {
+          id: appointment.id,
+          start: startDate.toISOString(),
+          end: endDate.toISOString(),
+          allDay: false,
+          eventTitle: appointment.title,
+          calendarProvider: "appointments",
+          tertiaryText: "",
+          metaText: "",
+          icon: "oj-ux-ico-edit",
+          iconLabel: ""
+        };
+      });
+    }
   }
 
   return PageModule;
