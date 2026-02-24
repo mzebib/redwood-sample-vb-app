@@ -20,6 +20,9 @@ define([
       const groupActivitiesByDate = await $functions.groupActivitiesByDate($variables.activityPendingList, $variables.activityCompletedList);
 
       $variables.activitiesGroupList = groupActivitiesByDate;
+
+      const calendarEvents = $functions.getCalendarEvents($variables.activityPendingList, $variables.activityCompletedList);
+      $variables.calendarEventsList = calendarEvents;
     }
   }
 
