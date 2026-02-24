@@ -1,0 +1,8 @@
+{
+  "id": "calendar",
+  "description": "Calendar Flow",
+  "defaultPage": "calendar-page",
+  "services": {},
+  "chains": {},
+  "variables": {}
+}
