@@ -548,6 +548,9 @@
                 </template>
               </oj-bind-for-each>
             </oj-bind-if>
+             <oj-bind-if test='[[ $variables.activitiesViewType === "activities-calendar" ]]'>
+                <oj-calendar activities="[[$variables.activityListSDP]]" style="width:100%;height:100%"></oj-calendar>
+            </oj-bind-if>
           </div>
         </div>
       </oj-bind-if>
