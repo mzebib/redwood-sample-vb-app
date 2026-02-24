@@ -91,7 +91,21 @@ define(["ojs/ojarraydataprovider"], function (ArrayDataProvider) {
       return month + " " + day + ", " + year;
     }
 
-    groupActivitiesByDate(activitiesPendingList, activitiesCompletedList) {
+    getCalendarActivities(activities) {
+      return activities.map(activity => {
+        const activityDate = new Date(activity.activityDate);
+        const start = new Date(activityDate.getFullYear(), activityDate.getMonth(), activityDate.getDate(), 9, 0, 0); // Default to 9:00 AM
+        const end = new Date(activityDate.getFullYear(), activityDate.getMonth(), activityDate.getDate(), 10, 0, 0); // Default to 10:00 AM
+        return {
+          id: activity.id,
+          title: activity.title,
+          start: start.toISOString(),
+          end: end.toISOString(),
+        };
+      });
+    }
+
+    groupActivitiesByDate(page, activitiesPendingList, activitiesCompletedList) {
       let activitiesPendingListCopy = JSON.parse(JSON.stringify(activitiesPendingList));
       let activitiesCompletedListCopy = JSON.parse(JSON.stringify(activitiesCompletedList));
 
@@ -164,6 +178,10 @@ define(["ojs/ojarraydataprovider"], function (ArrayDataProvider) {
         activitiesGroupMap.set(activityGroup.id, activityGroup);
         idCounter++;
       }
+
+      const allActivities = [...activitiesPendingListCopy, ...activitiesCompletedListCopy];
+      const calendarActivities = this.getCalendarActivities(allActivities);
+      page.variables.activityCalendarADP = new ArrayDataProvider(calendarActivities, { keyAttributes: 'id' });
 
       let result = Array.from(activitiesGroupMap.values());
       // result.sort((a, b) => (a.id > b.id ? -1 : 1));
