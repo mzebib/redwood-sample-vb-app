@@ -23,6 +23,13 @@
     }
   },
   "eventListeners": {
+    "vbEnter": {
+      "chains": [
+        {
+          "chainId": "populateNavigationData"
+        }
+      ]
+    },
     "application:navigateToItem": {
       "chains": [
         {
