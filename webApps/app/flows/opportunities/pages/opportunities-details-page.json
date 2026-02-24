@@ -42,6 +42,17 @@
       },
       "type": "vb/ArrayDataProvider2"
     },
+    "calendarActivities": {
+      "type": "application:activityType[]"
+    },
+    "calendarActivitiesADP": {
+      "type": "vb/ArrayDataProvider2",
+      "defaultValue": {
+        "data": "{{ $variables.calendarActivities }}",
+        "itemType": "application:activityType",
+        "keyAttributes": "id"
+      }
+    },
     "contactsCount": {
       "type": "number",
       "defaultValue": 2
