@@ -1,0 +1,23 @@
+{
+  "root": "assignVariables",
+  "description": "Populates the navigation data.",
+  "actions": {
+    "assignVariables": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$application.variables.navigationData": [
+          {
+            "id": "opportunities",
+            "name": "Opportunities",
+            "iconClass": "oj-ux-ico-opportunities"
+          },
+          {
+            "id": "calendar",
+            "name": "Calendar",
+            "iconClass": "oj-ux-ico-calendar"
+          }
+        ]
+      }
+    }
+  }
+}
