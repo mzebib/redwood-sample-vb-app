@@ -21,6 +21,14 @@
       "type": "string",
       "defaultValue": "activities-list"
     },
+    "activityCalendarADP": {
+      "type": "vb/ArrayDataProvider2",
+      "defaultValue": {
+        "data": "[]",
+        "itemType": "application:activityType",
+        "keyAttributes": "id"
+      }
+    },
     "activityCompletedList": {
       "type": "application:activityType[]",
       "defaultValue": "[[ [\n            {\n                \"id\": 4,\n                \"activityDate\": \"2/6/26\",\n                \"activityOrder\": 1,\n                \"activityStatus\": \"Completed\",\n                \"description\": null,\n                \"icon\": \"oj-ux-ico-phone-on\",\n                \"title\": \"Discovery Call\",\n                \"activityType\": \"LOG\",\n                \"dueDate\": null,\n                \"objectId\": 1,\n                \"content\": null,\n                \"owner\": \"Sales Rep\",\n                \"activityTime\": \"10:00 AM\"\n            },\n            {\n                \"id\": 3,\n                \"activityDate\": \"2/4/26\",\n                \"activityOrder\": 1,\n                \"activityStatus\": \"Completed\",\n                \"description\": null,\n                \"icon\": \"oj-ux-ico-email\",\n                \"title\": \"Intro Email\",\n                \"activityType\": \"LOG\",\n                \"dueDate\": null,\n                \"objectId\": 1,\n                \"content\": null,\n                \"owner\": \"Sales Rep\",\n                \"activityTime\": \"9:00 AM\"\n            },            {\n                \"id\": 2,\n                \"activityDate\": \"2/2/26\",\n                \"activityOrder\": 1,\n                \"activityStatus\": \"Completed\",\n                \"description\": null,\n                \"icon\": \"oj-ux-ico-chart-funnel-v\",\n                \"title\": \"Opportunity Updated\",\n                \"activityType\": \"LOG\",\n                \"dueDate\": null,\n                \"objectId\": 1,\n                \"content\": null,\n                \"owner\": \"Sales Rep\",\n                \"activityTime\": \"12:00 PM\"\n            },\n            {\n                \"id\": 1,\n                \"activityDate\": \"2/2/26\",\n                \"activityOrder\": 1,\n                \"activityStatus\": \"Completed\",\n                \"description\": null,\n                \"icon\": \"oj-ux-ico-chart-funnel-v\",\n                \"title\": \"Opportunity Created\",\n                \"activityType\": \"LOG\",\n                \"dueDate\": null,\n                \"objectId\": 1,\n                \"content\": null,\n                \"owner\": \"Sales Rep\",\n                \"activityTime\": \"10:00 AM\"\n            }\n        ] ]]"
@@ -224,6 +232,9 @@
       },
       "oj-buttonset-one": {
         "path": "ojs/ojbutton"
+      },
+      "oj-calendar": {
+        "path": "ojs/ojcalendar"
       },
       "oj-collapsible": {
         "path": "ojs/ojcollapsible"
