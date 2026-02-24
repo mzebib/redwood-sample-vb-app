@@ -32,6 +32,17 @@
         "itemType": "application:activityType"
       }
     },
+    "activityList": {
+      "type": "application:activityType[]"
+    },
+    "activityListADP": {
+      "type": "vb/ArrayDataProvider2",
+      "defaultValue": {
+        "data": "{{ $variables.activityList }}",
+        "itemType": "application:activityType",
+        "keyAttributes": "id"
+      }
+    },
     "activityPendingList": {
       "type": "application:activityType[]"
     },
@@ -224,6 +235,9 @@
       },
       "oj-buttonset-one": {
         "path": "ojs/ojbutton"
+      },
+      "oj-c-calendar": {
+        "path": "oj-c/calendar/loader"
       },
       "oj-collapsible": {
         "path": "ojs/ojcollapsible"
