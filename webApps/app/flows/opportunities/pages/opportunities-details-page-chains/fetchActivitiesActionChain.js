@@ -17,7 +17,7 @@ define([
     async run(context) {
       const { $page, $flow, $application, $constants, $variables, $functions } = context;
 
-      const groupActivitiesByDate = await $functions.groupActivitiesByDate($variables.activityPendingList, $variables.activityCompletedList);
+      const groupActivitiesByDate = await $functions.groupActivitiesByDate($page, $variables.activityPendingList, $variables.activityCompletedList);
 
       $variables.activitiesGroupList = groupActivitiesByDate;
     }
