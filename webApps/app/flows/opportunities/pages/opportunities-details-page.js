@@ -170,6 +170,17 @@ define(["ojs/ojarraydataprovider"], function (ArrayDataProvider) {
 
       return result;
     }
+
+    getActivitiesForCalendar(activitiesPendingList, activitiesCompletedList) {
+      const allActivities = [...activitiesPendingList, ...activitiesCompletedList];
+      return allActivities.map(activity => {
+        return {
+          ...activity,
+          start: new Date(activity.activityDate).toISOString(),
+          end: new Date(activity.activityDate).toISOString(),
+        };
+      });
+    }
   }
 
   return PageModule;
