@@ -1,0 +1,15 @@
+{
+  "pageModelVersion": "22.10.0",
+  "title": "Calendar",
+  "description": "Calendar Page",
+  "variables": {},
+  "chains": {},
+  "eventListeners": {},
+  "imports": {
+    "components": {
+      "oj-calendar": {
+        "path": "ojs/ojcalendar"
+      }
+    }
+  }
+}
